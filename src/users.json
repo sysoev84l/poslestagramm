@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Alexey",
+      "followed": true,
+      "status": "I\'m senior full stack developer!!",
+      "location": {
+        "city": "Pyatigorsk",
+        "country": "Russia"
+      },
+      "isMale": true
+    },
+    {
+      "id": 2,
+      "followed": true,
+      "fullName": "Nastya",
+      "status": "Hi guys!!",
+      "location": {
+        "city": "Moscow",
+        "country": "Russia"
+      },
+      "isMale": false
+    },
+    {
+      "id": 3,
+      "followed": false,
+      "fullName": "Andrew",
+      "status": "Hello,world!! Mather fucker!!",
+      "location": {
+        "city": "Kukuevo",
+        "country": "Russia"
+      },
+      "isMale": true
+    }
+  ]
+}

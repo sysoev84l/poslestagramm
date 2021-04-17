@@ -1,0 +1,20 @@
+.wrapper {
+  width: 32px; }
+  .wrapper img {
+    display: block;
+    width: 100%; }
+
+.wrapper.small {
+  width: 24px; }
+
+.wrapper.large {
+  width: 64px; }
+
+/* 768px - 992px */
+/* 576px - 768px */
+/* 320px - 576px */
+@media screen and (max-width: 576px) {
+  .wrapper {
+    width: 20px; } }
+
+/*# sourceMappingURL=Avatars.module.css.map */

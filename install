@@ -1,0 +1,20 @@
+# react-router-dom
+npm i --save react-router-dom
+# fortawesome
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+npm install --save @fortawesome/free-brands-svg-icons
+npm install --save @fortawesome/free-regular-svg-icons
+# bootstrap
+npm install --save bootstrap react-bootstrap
+# redux
+npm i --save redux
+# react-redux
+npm i --save react-redux
+# redux-form
+npm i --save redux-form
+# redux-thunk
+npm i --save redux-thunk
+# axios
+nmp i --save axios

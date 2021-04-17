@@ -1,0 +1,52 @@
+.usersWrap {
+  margin-bottom: 10px;
+  display: flex; }
+  .usersWrap .userIconWrap {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    flex: 0 0 10%; }
+    .usersWrap .userIconWrap .userIcon {
+      align-self: center;
+      margin-bottom: 5px; }
+    .usersWrap .userIconWrap .followBtn {
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: bold; }
+  .usersWrap .userDescriptionWrap {
+    flex: 1 0 auto;
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 5px 10px; }
+    .usersWrap .userDescriptionWrap .userInfoWrap {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      .usersWrap .userDescriptionWrap .userInfoWrap .userName {
+        letter-spacing: 2px; }
+        .usersWrap .userDescriptionWrap .userInfoWrap .userName a {
+          text-decoration: none;
+          transition-duration: .3s; }
+          .usersWrap .userDescriptionWrap .userInfoWrap .userName a:hover {
+            text-decoration: none; }
+      .usersWrap .userDescriptionWrap .userInfoWrap .userStatus {
+        font-size: 16px; }
+    .usersWrap .userDescriptionWrap .userLocationWrap {
+      font-size: 18px;
+      letter-spacing: 2px; }
+
+.controlWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; }
+  .controlWrap .controlBtn {
+    letter-spacing: 2px; }
+
+/* 768px - 992px */
+/* 576px - 768px */
+/* 320px - 576px */
+
+/*# sourceMappingURL=Users.module.css.map */

@@ -1,0 +1,104 @@
+.wrapper {
+
+}
+
+.usersWrap {
+  margin-bottom: 10px;
+  display: flex;
+
+  .userIconWrap {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    flex: 0 0 10%;
+
+    .userIcon {
+      align-self: center;
+      margin-bottom: 5px;
+    }
+
+    .followBtn {
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+  }
+
+  .userDescriptionWrap {
+    flex: 1 0 auto;
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 5px 10px;
+
+    .userInfoWrap {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .userName {
+        letter-spacing: 2px;
+
+        a {
+          text-decoration: none;
+          transition-duration: .3s;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+      }
+
+      .userStatus {
+        font-size: 16px;
+      }
+    }
+
+    .userLocationWrap {
+      font-size: 18px;
+      letter-spacing: 2px;
+
+      .country {
+
+      }
+
+      .city {
+
+      }
+    }
+
+
+  }
+}
+
+.controlWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  .controlBtn {
+    letter-spacing: 2px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+}
+
+/* 768px - 992px */
+@media screen and (max-width: 992px) {
+
+}
+
+/* 576px - 768px */
+@media screen and (max-width: 768px) {
+
+}
+
+/* 320px - 576px */
+@media screen and (max-width: 576px) {
+
+}

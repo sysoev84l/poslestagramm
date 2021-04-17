@@ -1,0 +1,56 @@
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.mainPhoto {
+  width: 100%;
+  max-height: 200px;
+}
+
+.descriptionBlock {
+  display: flex;
+  padding: 10px 10px 0;
+
+  .description {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 5px 20px;
+    margin-left: 10px;
+    flex: 1 1 auto;
+  }
+}
+.statusWrap, .contactWrap {
+  margin-top: 20px;
+}
+.statusWrap {
+
+  .formItem input {
+    width: 100%;
+    padding: 5px;
+    height: 3rem;
+
+    &:focus {
+      outline-color: deepskyblue;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+
+}
+
+/* 768px - 992px */
+@media screen and (max-width: 992px) {
+
+}
+
+/* 576px - 768px */
+@media screen and (max-width: 768px) {
+
+}
+
+/* 320px - 576px */
+@media screen and (max-width: 576px) {
+
+}

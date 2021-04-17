@@ -1,0 +1,27 @@
+  .message {
+    margin: 10px 0;
+
+    font-size: 16px;
+  }
+
+@media screen and (max-width: 1200px) {
+
+}
+
+/* 768px - 992px */
+@media screen and (max-width: 992px) {
+
+}
+
+/* 576px - 768px */
+@media screen and (max-width: 768px) {
+
+}
+
+/* 320px - 576px */
+@media screen and (max-width: 576px) {
+  .message {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
