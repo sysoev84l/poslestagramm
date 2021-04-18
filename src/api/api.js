@@ -45,7 +45,7 @@ export const profileAPI = {
             });
     },
     updateStatus(status) {
-        return instance.put(`profile/status/`, {status})
+        return instance.put('profile/status/', {status})
 
     }
 }
@@ -57,6 +57,12 @@ export const authAPI = {
             .then(response => {
                 return response.data
             });
+    },
+    login({}) {
+        return instance.post('auth/login')
+    },
+    logout() {
+        return instance.delete('auth/login')
     }
 }
 

@@ -14,7 +14,6 @@ const LoginForm = (props) => {
             <div className={`${style.formItem} ${style.check}`}>
                 <Field type="checkbox" name={'rememberMe'} component={'input'}/>Check me out
             </div>
-
             <button className={style.formBtn}>
                 Sign In
             </button>
