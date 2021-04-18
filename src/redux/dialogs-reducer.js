@@ -1,14 +1,6 @@
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
-export const sendMessage = () => ({type: SEND_MESSAGE});
-
-export const updateNewMassageBody = (body) => (
-    {
-        type: UPDATE_NEW_MESSAGE_BODY,
-        body: body
-    }
-);
+export const sendMessage = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
 
 let initialState = {
     dialogs: [
@@ -25,25 +17,18 @@ let initialState = {
         {id: 2, message: "How is your poslestagramm??"},
         {id: 3, message: "Yo"}
     ],
-    newMessageBody: ''
 };
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY :
-            return {
-                ...state,
-                newMessageBody: action.body
-            }
         case SEND_MESSAGE :
-            let body = state.newMessageBody;
+            let body = action.newMessageBody;
             let newMessage = {
                 id: state.messages.length + 1,
                 message: body
             };
             return {
                 ...state,
-                newMessageBody: '',
                 messages: [...state.messages, newMessage]
             }
         default:

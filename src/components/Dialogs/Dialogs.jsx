@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {Button} from "react-bootstrap";
 import {Field, reduxForm} from "redux-form";
 
 const AddMessageForm = (props) => {
@@ -19,7 +18,7 @@ const AddMessageForm = (props) => {
                 <button
                     variant="warning"
                     size="lg"
-                    className={s.btnSendMessage}
+                    className={s.btn}
                 >
                     Send message
                 </button>
@@ -27,24 +26,16 @@ const AddMessageForm = (props) => {
         </form>
     )
 }
-const AddMessageReduxForm = reduxForm({form: 'login'})(AddMessageForm)
+const AddMessageFormRedux = reduxForm({form: 'DialogsSendMassageForm'})(AddMessageForm)
 const Dialogs = (props) => {
     let state = props.dialogsPage;
     let dialogs = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id} isMale={d.isMale}/>);
     let messages = state.messages.map(m => <Message message={m.message} key={m.id}/>);
-    let newMessageBody = state.newMessageBody;
 
-    let newMessageElement = React.createRef();
-    let onSendMessageClick = () => {
-        props.sendMessage();
-    }
-    let onNewMessageChange = (e) => {
-        let body = e.target.value;
-        props.updateNewMessageBody(body);
-    }
-    const onSubmit = (formData) => {
-        if (JSON.stringify(formData) !== '{}') {
-            console.log(formData)
+
+    const addNewMessage = (value) => {
+        if (JSON.stringify(value) !== '{}') {
+            props.sendMessage(value.newMessageBody);
         }
     }
     return (
@@ -62,7 +53,7 @@ const Dialogs = (props) => {
                     </div>
                 </div>
             </div>
-            <AddMessageReduxForm onSubmit={onSubmit}/>
+            <AddMessageFormRedux onSubmit={addNewMessage}/>
         </div>
     )
 }

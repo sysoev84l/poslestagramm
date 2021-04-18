@@ -1,49 +1,40 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import {Button} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Field, reduxForm} from "redux-form";
 
-
+let AddNewPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit} className={s.addPostForm}>
+            <div className={s.formItem}>
+                <Field
+                    component="textarea"
+                    name="newPostText"
+                    placeholder='Enter text of new post'
+                />
+            </div>
+            <div className={s.formControl}>
+                <button className={s.btn}> Add post </button>
+            </div>
+        </form>
+    )
+}
+AddNewPostForm = reduxForm({form: 'ProfileAddNewPostForm'})(AddNewPostForm)
 const MyPosts = (props) => {
     let posts = props.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount}/>);
-    let newPostElement = React.createRef();
-    let onAddPost = () => {
-        props.addPost();
+    const onAddPost = (value) => {
+       // console.log(value.newPostText)
+        if (JSON.stringify(value) !== '{}') {
+            props.addPost(value.newPostText);
+        }
     }
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
-    }
-
     return (
         <div className={s.wrapper}>
             <h3 className="">
                 My posts
             </h3>
-            <div className={s.formWrap}>
-                <div className={s.formItem}>
-                    <textarea onChange={onPostChange}
-                              ref={newPostElement}
-                              value={props.newPostText}
-                              className=""
-                              placeholder='Enter text of new post'
-                    />
-                </div>
-                <div className={s.formControl}>
-                    <div className={s.buttonWrap}>
-                        <Button
-                            onClick={onAddPost}
-                            variant="warning"
-                            size="lg"
-                            block
-                            className={s.btn}>
-                            Add post
-                        </Button>
-                    </div>
-                </div>
-
-            </div>
+            <AddNewPostForm onSubmit={onAddPost}/>
             <div className={s.posts}>
                 {posts}
             </div>

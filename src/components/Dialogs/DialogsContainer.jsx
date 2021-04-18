@@ -1,4 +1,4 @@
-import {sendMessage, updateNewMassageBody} from "../../redux/dialogs-reducer";
+import {sendMessage} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import React from "react";
@@ -20,5 +20,5 @@ const AuthRedirectComponent = withAuthRedirect(Dialogs)
 const DialogsContainer = connect(mapStateToProps,
     {sendMessage, updateNewMassageBody})(AuthRedirectComponent);*/
 export default compose(connect(mapStateToProps,
-    {sendMessage, updateNewMassageBody}),
+    {sendMessage}),
     withAuthRedirect)(Dialogs)
