@@ -15,7 +15,7 @@ let AddNewPostForm = (props) => {
                 />
             </div>
             <div className={s.formControl}>
-                <button className={s.btn}> Add post </button>
+                <button className={s.btn}>Add post</button>
             </div>
         </form>
     )

@@ -15,13 +15,7 @@ const AddMessageForm = (props) => {
                 />
             </div>
             <div className={s.formControl}>
-                <button
-                    variant="warning"
-                    size="lg"
-                    className={s.btn}
-                >
-                    Send message
-                </button>
+                <button className={s.btn}>Send message</button>
             </div>
         </form>
     )
