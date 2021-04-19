@@ -9,7 +9,8 @@ let initialState = {
         {id: 1, message: "Hi, it's my first post!!", likesCount: 20},
         {id: 2, message: "I very glad to see you!!", likesCount: 15},
         {id: 3, message: "Who is on duty today??", likesCount: 22},
-        {id: 4, message: "I'm Senior Full Stack Developer!!", likesCount: 33}
+        {id: 4, message: "I'm Senior Full Stack Developer!!", likesCount: 33},
+        {id: 5, message: "Jews, Jews!! There are only Jews around!!", likesCount: 33}
     ],
     newPostText: '',
     profile: null,

@@ -27,6 +27,25 @@
   }
 
   .loginBlockWrap {
+    color: gold;
+    .loginTitleWrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 100px;
+        padding: 5px;
+        &:hover {
+          color: darkgoldenrod;
+        }
+      }
+    }
+
     a {
       color: gold;
       text-decoration: none;
@@ -36,6 +55,11 @@
         text-decoration: none;
         color: orange;
       }
+    }
+    .signWrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }

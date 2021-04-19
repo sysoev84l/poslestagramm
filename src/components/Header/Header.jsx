@@ -3,7 +3,7 @@ import logo from './../../assets/img/logo/logo.svg';
 import style from './Header.module.css';
 import {NavLink} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSignInAlt} from "@fortawesome/free-solid-svg-icons";
+import {faSignInAlt, faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 
 const Header = (props) => {
     return (
@@ -18,8 +18,18 @@ const Header = (props) => {
             </div>
             <div className={style.loginBlockWrap}>
                 {props.isAuth
-                    ? <NavLink to='/profile'>{props.login}</NavLink>
-                    : <NavLink to='/login'><FontAwesomeIcon icon={faSignInAlt}/> Sign In </NavLink>
+                    ?
+                    <div className={style.loginTitleWrap}>
+                        <NavLink to='/profile'>{props.login}</NavLink>
+                        <button className={style.btn} onClick={props.logout}><FontAwesomeIcon icon={faSignOutAlt}/></button>
+                    </div>
+                    :
+                    <NavLink className={style.signWrap} to='/login'>
+                        <span>Sign In</span>
+                        <span>
+                        <FontAwesomeIcon icon={faSignInAlt}/>
+                        </span>
+                    </NavLink>
                 }
             </div>
         </header>
