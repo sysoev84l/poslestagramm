@@ -1,6 +1,7 @@
 import React from "react";
 import style from './ProfileInfo.module.css'
 import {Form} from "react-bootstrap";
+import handleSubmit from "redux-form/lib/handleSubmit";
 
 class ProfileStatus extends React.Component {
     state = {
@@ -50,6 +51,7 @@ class ProfileStatus extends React.Component {
                                               autoFocus={true}
                                               onBlur={this.deactivateEditMode}
                                               value={this.state.status}
+                                              onSubmit={ e => this.handleSubmit(e) }
                                 />
                             </Form.Group>
                         </Form>

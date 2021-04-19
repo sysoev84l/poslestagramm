@@ -3,15 +3,18 @@ import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {Field, reduxForm} from "redux-form";
-
+import {Textarea} from "../common/FormsContorls/FormControls";
+import {maxLengthCreator, required} from "../../utils/validators/validators";
+const maxLength100 = maxLengthCreator(100);
 const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className={s.addMessageForm}>
             <div className={s.formItem}>
                 <Field
-                    component="textarea"
+                    component={Textarea}
                     name="newMessageBody"
                     placeholder='Enter your message'
+                    validate={[required, maxLength100]}
                 />
             </div>
             <div className={s.formControl}>

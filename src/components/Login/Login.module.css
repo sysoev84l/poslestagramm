@@ -6,6 +6,7 @@
   .wrapper .loginForm {
     margin: 20px 0; }
     .wrapper .loginForm .formBtn {
+      display: block;
       color: #fff;
       padding: 6px 12px;
       font-size: 16px;
