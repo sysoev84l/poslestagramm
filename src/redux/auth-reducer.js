@@ -19,7 +19,6 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.payload,
-                //  isAuth: true
             }
 
         case TOGGLE_IS_FETCHING:
@@ -39,7 +38,7 @@ export const getAuthUserData = () => {
 
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
-        authAPI.me()
+        return authAPI.me()
             .then(response => {
 
                 dispatch(toggleIsFetching(false));
