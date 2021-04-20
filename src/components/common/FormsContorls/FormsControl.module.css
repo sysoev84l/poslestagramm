@@ -5,6 +5,8 @@
     padding: 8px;
     border: 1px solid #ced4da;
     border-radius: .25rem; }
+    .formControl input[type="text"], .formControl input[type="email"], .formControl input[type="password"] {
+      width: 100%; }
     .formControl input:focus {
       border-color: #80bdff;
       outline-color: deepskyblue; }
@@ -22,6 +24,21 @@
   .formControl.error span {
     display: inline-block;
     color: #f00; }
+
+.formSummaryError {
+  text-align: center;
+  font-size: 14px;
+  padding: 5px;
+  color: red;
+  margin-bottom: 5px; }
+
+.formCheckboxWrap {
+  display: flex;
+  align-items: center; }
+  .formCheckboxWrap .label {
+    margin-left: 3px; }
+    .formCheckboxWrap .label label {
+      margin-bottom: 0; }
 
 /* 768px - 992px */
 /* 576px - 768px */

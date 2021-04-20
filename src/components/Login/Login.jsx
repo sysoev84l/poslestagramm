@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Login.module.css'
+import s from '../common/FormsContorls/FormsControl.module.css'
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../common/FormsContorls/FormControls";
 import {required} from "../../utils/validators/validators";
@@ -17,6 +18,7 @@ const LoginForm = (props) => {
                 name={'email'}
                 validate={[required]}
             />
+
             <Field
                 component={Input}
                 type="password"
@@ -24,13 +26,25 @@ const LoginForm = (props) => {
                 name={'password'}
                 validate={[required]}
             />
-            <Field
-                component={Input}
-                type="checkbox"
-                name={'rememberMe'}
-                id="rememberMe"
-            />
-            <label htmlFor="rememberMe">check me out</label>
+            <div className={s.formCheckboxWrap}>
+                <div>
+                    <Field
+                        component={Input}
+                        type="checkbox"
+                        name={'rememberMe'}
+                        id="rememberMe"
+                    />
+                </div>
+                <div className={s.label}>
+                    <label htmlFor="rememberMe">check me out</label>
+                </div>
+            </div>
+            {
+                props.error &&
+                <div className={s.formSummaryError}>
+                    {props.error}
+                </div>
+            }
             <button className={style.formBtn}>
                 Sign In
             </button>
@@ -43,14 +57,14 @@ const Login = (props) => {
         props.login(formData.email, formData.password, formData.rememberMe)
     }
     if (props.isAuth) {
-        return <Redirect to='/profile' />
+        return <Redirect to='/profile'/>
     }
-        return (
-            <div className={style.wrapper}>
-                <h1>Login</h1>
-                <LoginReduxForm onSubmit={onSubmit}/>
-            </div>
-        )
+    return (
+        <div className={style.wrapper}>
+            <h1>Login</h1>
+            <LoginReduxForm onSubmit={onSubmit}/>
+        </div>
+    )
 }
 const mapStateToProps = (state) => {
     return {
