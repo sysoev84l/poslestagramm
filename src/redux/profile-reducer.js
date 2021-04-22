@@ -1,4 +1,4 @@
-import {profileAPI, usersAPI} from "../api/api";
+import {profileAPI} from "../api/api";
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
@@ -62,7 +62,7 @@ export const setStatus = (status) => (
 export const getUserProfile = (userId) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
-        usersAPI.getProfile(userId)
+        profileAPI.getProfile(userId)
             .then(data => {
                 dispatch(toggleIsFetching(false));
                 dispatch(setUserProfile(data));

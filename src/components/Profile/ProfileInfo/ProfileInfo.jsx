@@ -2,7 +2,6 @@ import React from 'react';
 import style from './ProfileInfo.module.css';
 import Avatar from "../../common/Avatars/Avatar";
 import Preloader from "../../common/Preloader/Preloader";
-import ProfileStatus from './ProfileStatus'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCode, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import {
