@@ -18,7 +18,8 @@
     .formControl textarea:focus {
       outline-color: deepskyblue; }
   .formControl.error input, .formControl.error textarea {
-    border: 3px solid #f00; }
+    border: 3px solid #f00;
+    border-radius: .25rem; }
     .formControl.error input:focus, .formControl.error textarea:focus {
       outline: none; }
   .formControl.error span {

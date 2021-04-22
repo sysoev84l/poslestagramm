@@ -13,6 +13,7 @@ import {
     faVk,
     faYoutube
 } from "@fortawesome/free-brands-svg-icons";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -47,7 +48,7 @@ const ProfileInfo = (props) => {
                 </div>
 
             </div>
-            <ProfileStatus status={props.status}
+            <ProfileStatusWithHooks status={props.status}
                            updateStatus={props.updateStatus}
             />
             <div className={style.contactWrap}>

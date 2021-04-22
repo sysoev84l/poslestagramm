@@ -30,13 +30,6 @@ a {
 .statusWrap, .contactWrap {
   margin-top: 20px; }
 
-.statusWrap .formItem input {
-  width: 100%;
-  padding: 5px;
-  height: 3rem; }
-  .statusWrap .formItem input:focus {
-    outline-color: deepskyblue; }
-
 /* 768px - 992px */
 /* 576px - 768px */
 /* 320px - 576px */

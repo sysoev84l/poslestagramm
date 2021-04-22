@@ -39,18 +39,6 @@ a {
 .statusWrap, .contactWrap {
   margin-top: 20px;
 }
-.statusWrap {
-
-  .formItem input {
-    width: 100%;
-    padding: 5px;
-    height: 3rem;
-
-    &:focus {
-      outline-color: deepskyblue;
-    }
-  }
-}
 @media screen and (max-width: 1200px) {
 
 }

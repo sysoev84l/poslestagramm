@@ -1,14 +1,6 @@
 import React from "react";
 import style from './ProfileInfo.module.css'
 
-const StatusInput = (props) => {
-    return (
-        <div className={style.statusInputWrap}>
-            <input type="text" {...props}/>
-        </div>
-    )
-}
-
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,
@@ -52,13 +44,15 @@ class ProfileStatus extends React.Component {
                 </div>
                 }
                 {this.state.editMode &&
-                <StatusInput
-                    placeholder={'Input your status'}
-                    onChange={this.onStatusChange}
-                    autoFocus={true}
-                    onBlur={this.deactivateEditMode}
-                    value={this.state.status}
-                />
+                <div className={style.statusInputWrap}>
+                    <input type="text"
+                           placeholder='Input your status'
+                           onChange={this.onStatusChange}
+                           autoFocus={true}
+                           onBlur={this.deactivateEditMode}
+                           value={this.state.status}
+                    />
+                </div>
                 }
             </div>
         )
