@@ -1,6 +1,5 @@
 import React from "react";
 import style from './ProfileInfo.module.css'
-import {Form} from "react-bootstrap";
 
 const StatusInput = (props) => {
     return (
@@ -48,16 +47,7 @@ class ProfileStatus extends React.Component {
                 {!this.state.editMode &&
                 <div>
                     <div onClick={this.activateEditMode}>
-                        {this.props.status
-                        ||
-                        <StatusInput
-                            placeholder={'Input your status'}
-                            onChange={this.onStatusChange}
-                            autoFocus={true}
-                            onBlur={this.deactivateEditMode}
-                            value={this.state.status}
-                        />
-                        }
+                        {this.props.status || '---------------'}
                     </div>
                 </div>
                 }

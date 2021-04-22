@@ -3,8 +3,6 @@ import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {Col, Container, Row} from "react-bootstrap";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import {Redirect} from "react-router-dom";
-
 
 const Profile = (props) => {
 
