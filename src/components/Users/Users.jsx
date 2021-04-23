@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, Container} from "react-bootstrap";
-import style from "./Users.module.css";
+import style from "./Users.module.scss";
 import Avatar from "../common/Avatars/Avatar";
 import {NavLink} from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Youtube.module.css';
+import s from './Youtube.module.scss';
 
 const Youtube = (props) => {
     let src = 'https://www.youtube.com/embed/' + props.id;

@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Settings.module.css';
+import s from './Settings.module.scss';
 import Loader from "../common/Preloader/Preloader";
 
 const Settings = (props) => {

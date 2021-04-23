@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Api.module.css';
+import style from './Api.module.scss';
 import api from '../../../../assets/img/icons/api.svg';
 
 const Api = (props) => {

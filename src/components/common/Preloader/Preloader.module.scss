@@ -1,8 +1,15 @@
+.title {
+  display: none;
+}
 .fullSize {
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  .title {
+    display: block;
+  }
 }
 .wrapper {
   margin-top: 20px;

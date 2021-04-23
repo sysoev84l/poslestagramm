@@ -18,3 +18,7 @@ npm i --save redux-form
 npm i --save redux-thunk
 # axios
 nmp i --save axios
+# sass
+nmp i --save node-sass
+nmp i --save sass-loader
+

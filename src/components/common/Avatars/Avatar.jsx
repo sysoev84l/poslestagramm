@@ -1,7 +1,7 @@
 import React from 'react';
 import imgMan from '../../../assets/img/avatar/man.svg';
 import imgWoman from '../../../assets/img/avatar/woman.svg';
-import s from './Avatars.module.css';
+import s from './Avatars.module.scss';
 
 const Avatar = (props) => {
     let sex = NaN;

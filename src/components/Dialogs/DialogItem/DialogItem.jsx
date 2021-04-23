@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './DialogItem.module.css';
+import s from './DialogItem.module.scss';
 import {NavLink} from "react-router-dom";
 import Avatar from "../../common/Avatars/Avatar";
 

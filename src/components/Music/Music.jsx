@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Music.module.css';
+import style from './Music.module.scss';
 import Youtube from "./Youtube/Youtube";
 
 

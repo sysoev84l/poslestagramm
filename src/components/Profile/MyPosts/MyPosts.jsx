@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './MyPosts.module.css';
+import s from './MyPosts.module.scss';
 import Post from './Post/Post';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Field, reduxForm} from "redux-form";
@@ -24,7 +24,7 @@ let AddNewPostForm = (props) => {
     )
 }
 AddNewPostForm = reduxForm({form: 'ProfileAddNewPostForm'})(AddNewPostForm)
-const MyPosts = (props) => {
+const MyPosts = React.memo((props) => {
     let posts = props.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount}/>);
     const onAddPost = (value) => {
             props.addPost(value.newPostText);
@@ -38,8 +38,7 @@ const MyPosts = (props) => {
             <div className={s.posts}>
                 {posts}
             </div>
-
         </div>
     )
-}
+});
 export default MyPosts
