@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css'
-import s from './App.module.css'
+import './App.scss'
+import s from './App.module.scss'
 import {Route, withRouter} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import News from "./components/News/News";
