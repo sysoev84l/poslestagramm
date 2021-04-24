@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,QAAS;EACP,KAAK,EAAE,IAAI;EAEX,YAAI;IACF,OAAO,EAAE,KAAK;IACd,KAAK,EAAE,IAAI;;AAGf,cAAe;EACb,KAAK,EAAE,IAAI;;AAEb,cAAe;EACb,KAAK,EAAE,IAAI;;AAOb,mBAAmB;AAKnB,mBAAmB;AAKnB,mBAAmB;AACnB,oCAAqC;EACpC,QAAS;IACP,KAAK,EAAE,IAAI",
-"sources": ["Avatars.module.scss"],
-"names": [],
-"file": "Avatars.module.css"
-}

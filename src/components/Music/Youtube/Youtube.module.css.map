@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,KAAM;EACJ,MAAM,EAAE,GAAG;;AASb,mBAAmB;AAKnB,mBAAmB;AAKnB,mBAAmB",
-"sources": ["Youtube.module.scss"],
-"names": [],
-"file": "Youtube.module.css"
-}

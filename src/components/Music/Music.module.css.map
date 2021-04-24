@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,QAAS;EACP,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,YAAY,EAAE,IAAI;EAClB,WAAW,EAAE,IAAI;;AAMnB,mBAAmB;AAKnB,mBAAmB;AAKnB,mBAAmB",
-"sources": ["Music.module.scss"],
-"names": [],
-"file": "Music.module.css"
-}

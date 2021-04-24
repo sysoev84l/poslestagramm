@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,QAAS;EACP,OAAO,EAAE,IAAI;;AAMf,mBAAmB;AAKnB,mBAAmB;AAKnB,mBAAmB",
-"sources": ["News.module.scss"],
-"names": [],
-"file": "News.module.css"
-}

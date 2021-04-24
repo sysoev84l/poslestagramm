@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,OAAQ;EACN,UAAU,EAAE,GAAG;EAEf,SAAE;IACA,eAAe,EAAE,IAAI;IACrB,KAAK,EAAE,IAAI;EAGb,gBAAS;IACP,KAAK,EAAE,aAAa;;AAGxB,WAAY;EACV,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;;AAMrB,mBAAmB;AAKnB,mBAAmB;AAKnB,mBAAmB",
-"sources": ["DialogItem.module.scss"],
-"names": [],
-"file": "DialogItem.module.css"
-}
