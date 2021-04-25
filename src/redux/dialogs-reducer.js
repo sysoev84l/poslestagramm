@@ -1,4 +1,4 @@
-const SEND_MESSAGE = 'SEND_MESSAGE';
+const SEND_MESSAGE = 'poslestagramm/dialogs/SEND_MESSAGE';
 
 export const sendMessage = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
 

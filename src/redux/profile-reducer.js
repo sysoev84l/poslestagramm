@@ -1,9 +1,10 @@
 import {profileAPI} from "../api/api";
-const ADD_POST = 'ADD-POST';
-const SET_USER_PROFILE = 'SET_USER_PROFILE'
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const SET_STATUS = 'SET_STATUS';
-const DELETE_POST = 'DELETE_POST';
+
+const ADD_POST = 'poslestagramm/profile/ADD-POST';
+const SET_USER_PROFILE = 'poslestagramm/profile/SET_USER_PROFILE'
+const TOGGLE_IS_FETCHING = 'poslestagramm/profile/TOGGLE_IS_FETCHING';
+const SET_STATUS = 'poslestagramm/profile/SET_STATUS';
+const DELETE_POST = 'poslestagramm/profile/DELETE_POST';
 
 let initialState = {
     posts: [
@@ -63,37 +64,23 @@ export const setStatus = (status) => (
     }
 )
 
+export const getUserProfile = (userId) => async (dispatch) => {
+    const response = await profileAPI.getProfile(userId);
+    dispatch(setUserProfile(response.data));
+}
 
-export const getUserProfile = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleIsFetching(true));
-        profileAPI.getProfile(userId)
-            .then(data => {
-                dispatch(toggleIsFetching(false));
-                dispatch(setUserProfile(data));
-            });
+export const getStatus = (userId) => async (dispatch) => {
+    const response = await profileAPI.getStatus(userId);
+    dispatch(setStatus(response.data));
+}
+
+export const updateStatus = (status) => async (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    const response = await profileAPI.updateStatus(status);
+    if (response.data.resultCode === 0) {
+        dispatch(toggleIsFetching(false));
+        dispatch(setStatus(status));
     }
 }
-export const getStatus = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleIsFetching(true));
-        profileAPI.getStatus(userId)
-            .then(data => {
-                dispatch(toggleIsFetching(false));
-                dispatch(setStatus(data));
-            });
-    }
-}
-export const updateStatus = (status) => {
-    return (dispatch) => {
-        dispatch(toggleIsFetching(true));
-        profileAPI.updateStatus(status)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(toggleIsFetching(false));
-                    dispatch(setStatus(status));
-                }
-            });
-    }
-}
+
 export default profileReducer

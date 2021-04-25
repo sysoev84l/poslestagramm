@@ -8,10 +8,10 @@ import {connect} from "react-redux";
 import {login, logout} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
-        <form onSubmit={props.handleSubmit} className={style.loginForm}>
-            <Field
+        <form onSubmit={handleSubmit} className={style.loginForm}>
+                    <Field
                 component={Input}
                 type="email"
                 placeholder="Enter email"
@@ -40,9 +40,9 @@ const LoginForm = (props) => {
                 </div>
             </div>
             {
-                props.error &&
+                error &&
                 <div className={s.formSummaryError}>
-                    {props.error}
+                    {error}
                 </div>
             }
             <button className={style.formBtn}>

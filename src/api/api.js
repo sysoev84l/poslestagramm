@@ -14,17 +14,11 @@ export const usersAPI = {
                 return response.data
             });
     },
-    unfollowUser(id) {
-        return instance.delete(`follow/${id}`)
-            .then(response => {
-                return response.data
-            });
+    unfollow(userId) {
+        return instance.delete(`follow/${userId}`)
     },
-    followUser(id) {
-        return instance.post(`follow/${id}`, {})
-            .then(response => {
-                return response.data
-            });
+    follow(userId) {
+        return instance.post(`follow/${userId}`, {})
     },
     getProfile(userId) {
         console.warn('Obsolete method. Please profileAPI object.');
@@ -34,19 +28,12 @@ export const usersAPI = {
 export const profileAPI = {
     getProfile(userId) {
         return instance.get(`profile/${userId}`)
-            .then(response => {
-                return response.data
-            });
     },
     getStatus(userId) {
         return instance.get(`profile/status/${userId}`)
-            .then(response => {
-                return response.data
-            });
     },
     updateStatus(status) {
         return instance.put('profile/status/', {status})
-
     }
 }
 

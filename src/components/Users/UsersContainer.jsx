@@ -16,24 +16,32 @@ import {
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(1, this.props.pageSize)
+        let {currentPage, pageSize} = this.props
+        this.props.getUsers(currentPage, pageSize)
     }
 
-    onPageChanged = () => {
-        this.props.getUsers(this.props.currentPage + 1, this.props.pageSize)
-
+    onNextPage = () => {
+        let {currentPage, pageSize} = this.props
+        this.props.getUsers(currentPage + 1, pageSize)
+    }
+    onPageChanged = (pageNumber) => {
+        const {pageSize} = this.props;
+        this.props.getUsers(pageNumber, pageSize);
     }
 
     render() {
         return (
             <>
-                <Users users={this.props.users}
+                <Users totalUsersCount={this.props.totalUsersCount}
+                       pageSize={this.props.pageSize}
                        currentPage={this.props.currentPage}
-                       isFetching={this.props.isFetching}
                        onPageChanged={this.onPageChanged}
+                       onNextPage={this.onNextPage}
+                       users={this.props.users}
                        follow={this.props.follow}
                        unfollow={this.props.unfollow}
                        followingInProgress={this.props.followingInProgress}
+                       isFetching={this.props.isFetching}
                        isAuth={this.props.isAuth}
                 />
                 {this.props.isFetching ? <Preloader/> : null}
@@ -41,18 +49,6 @@ class UsersContainer extends React.Component {
         )
     }
 }
-
-/*let mapStateToProps = (state) => {
-    return {
-        isAuth: state.auth.isAuth,
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
-    }
-}*/
 let mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
