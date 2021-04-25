@@ -76,13 +76,16 @@
   }
 }
 
-.controlWrap {
+.btnWrap {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 10px;
+  height: 100px;
 
   .controlBtn {
     letter-spacing: 2px;
+    border-radius: 50px;
   }
 }
 

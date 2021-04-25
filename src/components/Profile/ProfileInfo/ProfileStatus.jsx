@@ -38,8 +38,8 @@ class ProfileStatus extends React.Component {
             <div className={style.statusWrap}>
                 {!this.state.editMode &&
                 <div>
-                    <div onClick={this.activateEditMode}>
-                        {this.props.status || '---------------'}
+                    <div >
+                       <span onClick={this.activateEditMode}> {this.props.status || '---------------'}</span>
                     </div>
                 </div>
                 }

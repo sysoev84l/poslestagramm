@@ -24,6 +24,10 @@ class UsersContainer extends React.Component {
         let {currentPage, pageSize} = this.props
         this.props.getUsers(currentPage + 1, pageSize)
     }
+    onPrevPage = () => {
+        let {currentPage, pageSize} = this.props
+        this.props.getUsers(currentPage - 1, pageSize)
+    }
     onPageChanged = (pageNumber) => {
         const {pageSize} = this.props;
         this.props.getUsers(pageNumber, pageSize);
@@ -37,6 +41,7 @@ class UsersContainer extends React.Component {
                        currentPage={this.props.currentPage}
                        onPageChanged={this.onPageChanged}
                        onNextPage={this.onNextPage}
+                       onPrevPage={this.onPrevPage}
                        users={this.props.users}
                        follow={this.props.follow}
                        unfollow={this.props.unfollow}
@@ -49,6 +54,7 @@ class UsersContainer extends React.Component {
         )
     }
 }
+
 let mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
@@ -59,6 +65,7 @@ let mapStateToProps = (state) => {
         isFetching: getIsFetching(state),
         followingInProgress: getFollowingInProgress(state)
     }
+
 }
 
 export default compose(
