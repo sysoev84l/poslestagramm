@@ -3,45 +3,35 @@
   margin: 10px;
   justify-content: center;
   align-items: center;
-}
-
-.pagesWrap {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: space-between;
-  height: 40px;
-  .pageNumber {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin-right: 10px;
-    padding: 5px;
-    border: 1px solid grey;
-    height: 100%;
+  .pagesWrap {
     flex: 1 1 auto;
-    //width: 50px;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    .pageNumber {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      margin-right: 10px;
+      padding: 5px;
+      border: 1px solid grey;
+      border-radius: 100px;
+      height: 100%;
+      flex: 1 1 auto;
+      //width: 50px;
+    }
+    .pageNumber.selectedPage {
+      text-decoration: underline;
+      font-weight: bold;
+      border-color: deepskyblue;
+    }
   }
-  .pageNumber.selectedPage {
-    text-decoration: underline;
-    font-weight: bold;
-    border-color: black;
+  .btnWrap {
+    margin: 0 10px;
+    .btn {
+      letter-spacing: 2px;
+      border-radius: 50px;
+    }
   }
 }
-
-
-
-
-.btnWrap {
-  margin: 0 10px;
-
-  .btn {
-    letter-spacing: 2px;
-    border-radius: 50px;
-  }
-}
-
-
-
-
-

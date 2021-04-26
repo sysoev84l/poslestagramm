@@ -1,31 +1,26 @@
 .wrapper {
 
 }
-
 .usersWrap {
   min-height: 136px;
   margin-bottom: 10px;
   display: flex;
-
   .userIconWrap {
     display: flex;
     flex-direction: column;
     margin-right: 10px;
     flex: 0 0 10%;
-
     .userIcon {
       flex: 1 1 auto;
       align-self: center;
       margin-bottom: 5px;
     }
-
     .followBtn {
       font-size: 14px;
       letter-spacing: 2px;
       font-weight: bold;
     }
   }
-
   .userDescriptionWrap {
     flex: 1 0 auto;
     display: flex;
@@ -33,46 +28,33 @@
     border-radius: 10px;
     font-size: 14px;
     padding: 5px 10px;
-
     .userInfoWrap {
       flex: 1 0 auto;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
       .userName {
         letter-spacing: 2px;
-
         a {
           text-decoration: none;
           transition-duration: .3s;
-
           &:hover {
             text-decoration: none;
           }
         }
-
       }
-
       .userStatus {
         font-size: 16px;
       }
     }
-
     .userLocationWrap {
       font-size: 18px;
       letter-spacing: 2px;
-
       .country {
-
       }
-
       .city {
-
       }
     }
-
-
   }
 }
 

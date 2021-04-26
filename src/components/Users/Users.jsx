@@ -1,9 +1,8 @@
 import React from "react";
 import {Container} from "react-bootstrap";
 import style from "./Users.module.scss";
-import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
-
+import {Paginator} from "../common/Paginator/Paginator";
 
 const Users = ({
                    currentPage, totalUsersCount, pageSize, isFetching,
