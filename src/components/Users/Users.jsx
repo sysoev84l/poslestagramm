@@ -10,7 +10,6 @@ const Users = ({
                    onPageChanged, onNextPage, onPrevPage, users,
                    followingInProgress, follow, unfollow, ...props
                }) => {
-    let pagesCount = Math.ceil(totalUsersCount / pageSize);
     return (
         <Container>
             <div className={style.wrapper}>
