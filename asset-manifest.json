@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/poslestagramm/static/css/main.4ca2d6db.chunk.css",
+    "main.js": "/poslestagramm/static/js/main.28d173c3.chunk.js",
+    "main.js.map": "/poslestagramm/static/js/main.28d173c3.chunk.js.map",
+    "runtime-main.js": "/poslestagramm/static/js/runtime-main.b480c3db.js",
+    "runtime-main.js.map": "/poslestagramm/static/js/runtime-main.b480c3db.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/poslestagramm/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.3e8d0198.chunk.js": "/poslestagramm/static/js/2.3e8d0198.chunk.js",
+    "static/js/2.3e8d0198.chunk.js.map": "/poslestagramm/static/js/2.3e8d0198.chunk.js.map",
+    "static/js/3.328de0ae.chunk.js": "/poslestagramm/static/js/3.328de0ae.chunk.js",
+    "static/js/3.328de0ae.chunk.js.map": "/poslestagramm/static/js/3.328de0ae.chunk.js.map",
+    "index.html": "/poslestagramm/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/poslestagramm/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.4ca2d6db.chunk.css.map": "/poslestagramm/static/css/main.4ca2d6db.chunk.css.map",
+    "static/js/2.3e8d0198.chunk.js.LICENSE.txt": "/poslestagramm/static/js/2.3e8d0198.chunk.js.LICENSE.txt",
+    "static/media/04.d80b3bb8.jpg": "/poslestagramm/static/media/04.d80b3bb8.jpg",
+    "static/media/logo.b13d3ed3.svg": "/poslestagramm/static/media/logo.b13d3ed3.svg",
+    "static/media/man.f1446c87.svg": "/poslestagramm/static/media/man.f1446c87.svg",
+    "static/media/woman.05242306.svg": "/poslestagramm/static/media/woman.05242306.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b480c3db.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.3e8d0198.chunk.js",
+    "static/css/main.4ca2d6db.chunk.css",
+    "static/js/main.28d173c3.chunk.js"
+  ]
+}
