@@ -24,7 +24,9 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this.refreshProfile();
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+            this.refreshProfile();
+        }
     }
 
     render() {
@@ -32,6 +34,7 @@ class ProfileContainer extends React.Component {
             <div>
                 <Profile
                     {...this.props}
+                    isOwner={!this.props.match.params.userId}
                     profile={this.props.profile}
                     status={this.props.status}
                     updateStatus={this.props.updateStatus}
@@ -53,13 +56,5 @@ export default compose(
         mapStateToProps,
         {getUserProfile, getStatus, updateStatus}
     ),
-    withRouter,
-    //withAuthRedirect
+    withRouter
 )(ProfileContainer)
-
-/*
-const AuthRedirectComponent = withAuthRedirect(ProfileContainer);
-const WithUrlDataContainerComponents = withRouter(AuthRedirectComponent);
-connect(mapStateToProps, {
-    getUserProfile
-})(WithUrlDataContainerComponents);*/

@@ -14,7 +14,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+const ProfileInfo = ({isOwner, profile, status, updateStatus}) => {
     if (!profile) {
         return <Preloader/>
     }
@@ -22,11 +22,13 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
     return (
         <div className="">
             <div className={style.descriptionBlock}>
-                <div className={style.photo}>
-                    {profile.photos.small !== null
-                        ? <img src={profile.photos.small} alt=""/>
-                        : <Avatar sex='man' size='lg'/>
-                    }
+                <div className={style.photoWrap}>
+                    <div className={style.photo}>
+                        {profile.photos.small !== null
+                            ? <img src={profile.photos.small} alt=""/>
+                            : <Avatar sex='man' size='lg'/>
+                        }
+                    </div>
                 </div>
                 <div className={style.description}>
                     <div className={style.name}>
@@ -47,9 +49,14 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
                 </div>
 
             </div>
+            <div className={style.upload}>
+                {isOwner && <input type="file"/>}
+
+            </div>
             <ProfileStatusWithHooks status={status}
-                           updateStatus={updateStatus}
+                                    updateStatus={updateStatus}
             />
+
             <div className={style.contactWrap}>
                 <div className={style.titleWrap}>
                     <h5 className={style.title}>Contacts:</h5>

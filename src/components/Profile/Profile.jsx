@@ -12,6 +12,7 @@ const Profile = (props) => {
                 <Row>
                     <Col>
                         <ProfileInfo
+                            isOwner={props.isOwner}
                             profile={props.profile}
                             status={props.status}
                             updateStatus={props.updateStatus}
