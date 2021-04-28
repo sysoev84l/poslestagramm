@@ -1,6 +1,6 @@
 import {getAuthUserData} from "./auth-reducer";
 
-const INITIALIZED_SUCCESS = 'poslestagramm/app/INITIALIZED_SUCCESS';
+const INITIALIZED_SUCCESS = 'after100Grams/app/INITIALIZED_SUCCESS';
 
 
 let initialState = {

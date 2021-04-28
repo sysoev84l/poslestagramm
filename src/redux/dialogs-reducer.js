@@ -1,4 +1,4 @@
-const SEND_MESSAGE = 'poslestagramm/dialogs/SEND_MESSAGE';
+const SEND_MESSAGE = 'after100Grams/dialogs/SEND_MESSAGE';
 
 export const sendMessage = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
 
@@ -14,7 +14,7 @@ let initialState = {
     ],
     messages: [
         {id: 1, message: "Hi"},
-        {id: 2, message: "How is your poslestagramm??"},
+        {id: 2, message: "How is your after100Grams??"},
         {id: 3, message: "Yo"}
     ],
 };

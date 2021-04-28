@@ -1,10 +1,10 @@
 import {profileAPI} from "../api/api";
 
-const ADD_POST = 'poslestagramm/profile/ADD-POST';
-const SET_USER_PROFILE = 'poslestagramm/profile/SET_USER_PROFILE'
-const TOGGLE_IS_FETCHING = 'poslestagramm/profile/TOGGLE_IS_FETCHING';
-const SET_STATUS = 'poslestagramm/profile/SET_STATUS';
-const DELETE_POST = 'poslestagramm/profile/DELETE_POST';
+const ADD_POST = 'after100Grams/profile/ADD-POST';
+const SET_USER_PROFILE = 'after100Grams/profile/SET_USER_PROFILE'
+const TOGGLE_IS_FETCHING = 'after100Grams/profile/TOGGLE_IS_FETCHING';
+const SET_STATUS = 'after100Grams/profile/SET_STATUS';
+const DELETE_POST = 'after100Grams/profile/DELETE_POST';
 
 let initialState = {
     posts: [

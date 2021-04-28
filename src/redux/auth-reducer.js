@@ -1,8 +1,8 @@
 import {authAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
 
-const SET_USER_DATA = 'poslestagramm/auth/SET_USER_DATA';
-const TOGGLE_IS_FETCHING = 'poslestagramm/auth/TOGGLE_IS_FETCHING';
+const SET_USER_DATA = 'after100Grams/auth/SET_USER_DATA';
+const TOGGLE_IS_FETCHING = 'after100Grams/auth/TOGGLE_IS_FETCHING';
 
 let initialState = {
     id: null,
