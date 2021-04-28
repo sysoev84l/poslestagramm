@@ -3,10 +3,10 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom';
 import './index.css';
-import PosleStaGrammApp from "./App";
+import After100GramsApp from "./App";
 
 ReactDOM.render(
-   <PosleStaGrammApp/>, document.getElementById('root')
+   <After100GramsApp/>, document.getElementById('root')
 );
 
 

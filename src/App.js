@@ -73,7 +73,7 @@ const AppContainer = compose(
     connect(mapStateToProps,
         {initializeApp}))(App);
 
-const PosleStaGrammApp = (props) => {
+const After100GramsApp = (props) => {
     return (
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Provider store={store}>
@@ -83,4 +83,4 @@ const PosleStaGrammApp = (props) => {
     )
 }
 
-export default PosleStaGrammApp
+export default After100GramsApp
