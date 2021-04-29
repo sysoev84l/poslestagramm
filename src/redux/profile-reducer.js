@@ -5,6 +5,7 @@ const SET_USER_PROFILE = 'after100Grams/profile/SET_USER_PROFILE'
 const TOGGLE_IS_FETCHING = 'after100Grams/profile/TOGGLE_IS_FETCHING';
 const SET_STATUS = 'after100Grams/profile/SET_STATUS';
 const DELETE_POST = 'after100Grams/profile/DELETE_POST';
+const SAVE_PHOTO_SUCCESS = 'after100Grams/profile/SAVE_PHOTO_SUCCESS';
 
 let initialState = {
     posts: [
@@ -43,6 +44,8 @@ const profileReducer = (state = initialState, action) => {
         }
         case TOGGLE_IS_FETCHING:
             return {...state, isFetching: action.isFetching}
+        case SAVE_PHOTO_SUCCESS:
+            return {...state, profile: {...state.profile, photos: action.photos}}
         default:
             return state
     }
@@ -63,6 +66,11 @@ export const setStatus = (status) => (
         status
     }
 )
+export const savePhotoSuccess = (photos) => ({
+    type: SAVE_PHOTO_SUCCESS, photos
+})
+
+
 
 export const getUserProfile = (userId) => async (dispatch) => {
     const response = await profileAPI.getProfile(userId);
@@ -80,6 +88,12 @@ export const updateStatus = (status) => async (dispatch) => {
     if (response.data.resultCode === 0) {
         dispatch(toggleIsFetching(false));
         dispatch(setStatus(status));
+    }
+}
+export const savePhoto = (file) => async (dispatch) => {
+    const response = await profileAPI.savePhoto(file);
+    if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.data.photos));
     }
 }
 

@@ -14,11 +14,15 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = ({isOwner, profile, status, updateStatus}) => {
+const ProfileInfo = ({savePhoto, isOwner, profile, status, updateStatus}) => {
     if (!profile) {
         return <Preloader/>
     }
-
+    const onMainPhotoSelected = (e) => {
+       if  (e.target.files.length) {
+           savePhoto(e.target.files[0]);
+       }
+    }
     return (
         <div className="">
             <div className={style.descriptionBlock}>
@@ -50,7 +54,7 @@ const ProfileInfo = ({isOwner, profile, status, updateStatus}) => {
 
             </div>
             <div className={style.upload}>
-                {isOwner && <input type="file"/>}
+                {isOwner && <input type="file" onChange={onMainPhotoSelected}/>}
 
             </div>
             <ProfileStatusWithHooks status={status}
