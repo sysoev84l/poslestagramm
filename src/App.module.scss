@@ -1,10 +1,5 @@
-.container {
-  /*width: 1170px; */
-  width: 100%;
-  margin: 0 auto;
-  min-height: 100%;
-}
 .appWrapper {
+  width: 100%;
   min-height: 100%;
   display: grid;
   grid-template-areas:
@@ -15,7 +10,7 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 30px 10px;
 }
-.appWrapperContent {
+.contentWrapper {
   grid-area: content;
   margin-left: 5px;
   margin-right: 10px;
@@ -57,8 +52,7 @@
     grid-template-columns: 1fr;
     grid-gap: 0;
   }
-  .appWrapperContent {
+  .contentWrapper {
     margin: 0;
-
   }
 }

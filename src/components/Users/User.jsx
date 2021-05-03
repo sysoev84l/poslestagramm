@@ -54,14 +54,7 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                             {user.status}
                         </div>
                     </div>
-                    <div className={style.userLocationWrap}>
-                        <div className={style.country}>
-                            {"user.location.country"}
-                        </div>
-                        <div className={style.city}>
-                            {"user.location.city"}
-                        </div>
-                    </div>
+
                 </div>
             </div>
 

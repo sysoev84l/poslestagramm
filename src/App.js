@@ -37,10 +37,10 @@ class App extends React.Component {
             return <Preloader fullSize={true}/>
         }
         return (
-            <div className={`${s.appWrapper} ${s.container}`}>
+            <div className={s.appWrapper}>
                 <HeaderContainer/>
                 <NavbarContainer/>
-                <main className={s.appWrapperContent}>
+                <main className={s.contentWrapper}>
                     {/*<Route exact path='/' render={() => <ProfileContainer/>}/>*/}
                     <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
