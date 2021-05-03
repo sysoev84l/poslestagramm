@@ -9,7 +9,7 @@ const ProfileStatusWithHooks = (props) => {
         }, [props.status]);
 
     const activateEditMode = () => {
-        setEditMode(true)
+        props.isOwner && setEditMode(true)
     }
     const deactivateEditMode = () => {
         setEditMode(false);
@@ -21,6 +21,7 @@ const ProfileStatusWithHooks = (props) => {
 
     return (
         <div className={style.statusWrap}>
+            <h5>Status:</h5>
             {!editMode &&
             <div>
                 <div>
