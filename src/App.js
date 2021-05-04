@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss'
 import s from './App.module.scss'
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Route, withRouter, Switch, Redirect} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
@@ -17,6 +17,7 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
+import E404 from "./components/common/E404/E404";
 //import {withSuspense} from "./hoc/withSuspense";
 
 /*const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
@@ -28,8 +29,18 @@ const LoginPage = React.lazy(() => import('./components/Login/Login'));
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));*/
 
 class App extends React.Component {
+    catchAllUnhandledErrors = (reason, promise) => {
+        alert("Some error occurred");
+        //console.error(promiseRejectionEvent);
+    }
+
     componentDidMount() {
         this.props.initializeApp();
+        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
     }
 
     render() {
@@ -41,14 +52,17 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <NavbarContainer/>
                 <main className={s.contentWrapper}>
-                    {/*<Route exact path='/' render={() => <ProfileContainer/>}/>*/}
-                    <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-                    <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-                    <Route path='/users' render={() => <UsersContainer/>}/>
-                    <Route path='/news' render={() => <News/>}/>
-                    <Route path='/music' render={() => <MusicContainer/>}/>
-                    <Route path='/settings' render={() => <Settings/>}/>
-                    <Route path='/login' render={() => <LoginPage/>}/>
+                    <Switch>
+                        <Route exact path='/' render={() => <Redirect from="/" to="/profile"/>}/>
+                        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                        <Route path='/dialogs' render={() => <DialogsContainer/>}/>
+                        <Route path='/users' render={() => <UsersContainer/>}/>
+                        <Route path='/news' render={() => <News/>}/>
+                        <Route path='/music' render={() => <MusicContainer/>}/>
+                        <Route path='/settings' render={() => <Settings/>}/>
+                        <Route path='/login' render={() => <LoginPage/>}/>
+                        <Route path='*' render={() => <E404/>}/>
+                    </Switch>
 
                     {/*<Route path='/profile/:userId?' render={withSuspense(ProfileContainer)}/>
                     <Route path='/dialogs' render={withSuspense(DialogsContainer)}/>

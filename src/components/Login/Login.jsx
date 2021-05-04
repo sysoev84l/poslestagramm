@@ -18,7 +18,6 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
                 name={'email'}
                 validate={[required]}
             />
-
             <Field
                 component={Input}
                 type="password"

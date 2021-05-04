@@ -14,7 +14,7 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                         <NavLink to={'/profile/' + user.id}>
                             {user.photos.small !== null
                                 ? <img src={user.photos.small} alt=""/>
-                                : <Avatar sex='man' size='lg'/>
+                                : <Avatar size='lg'/>
                             }
                         </NavLink>
                     </div>

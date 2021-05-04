@@ -4,7 +4,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {Col, Container, Row} from "react-bootstrap";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const Profile = (props) => {
+const  Profile = (props) => {
 
     return (
         <div className={s.wrapper}>

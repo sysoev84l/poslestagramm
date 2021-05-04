@@ -2,24 +2,18 @@ import React from 'react';
 import imgMan from '../../../assets/img/avatar/man.svg';
 import imgWoman from '../../../assets/img/avatar/woman.svg';
 import s from './Avatars.module.scss';
+import cn from "classnames";
 
 const Avatar = (props) => {
-    let sex = NaN;
-    if (props.sex === 'man') sex = imgMan
-    else sex = imgWoman;
-    let size;
-    switch (props.size) {
-        case 's' :
-            size = s.small;
-            break;
-        case 'lg' :
-            size = s.large;
-            break;
-        default:
-            size = '';
-    }
+    let sex
+    if (props.sex === 'woman') sex = imgWoman
+    else sex = imgMan;
     return (
-        <div className={`${s.wrapper} ${size}`}>
+        <div className={
+            cn({[s.large]: props.size === 'lg'},
+                {[s.small]: props.size === 's'},
+                s.wrapper
+            )}>
             <img src={sex} alt=""/>
         </div>
 
