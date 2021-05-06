@@ -14,7 +14,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
 import {connect, Provider} from "react-redux";
 import {compose} from "redux";
-import {initializeApp} from "./redux/app-reducer";
+import {catchError, initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
 import E404 from "./components/common/E404/E404";
@@ -30,8 +30,10 @@ const UsersContainer = React.lazy(() => import('./components/Users/UsersContaine
 
 class App extends React.Component {
     catchAllUnhandledErrors = (reason, promise) => {
-        alert("Some error occurred");
+        //alert("Some error occurred");
+        this.props.catchError(true);
         //console.error(promiseRejectionEvent);
+        setTimeout(this.props.catchError,3000, false)
     }
 
     componentDidMount() {
@@ -47,8 +49,13 @@ class App extends React.Component {
         if (!this.props.initialized) {
             return <Preloader fullSize={true}/>
         }
+
         return (
             <div className={s.appWrapper}>
+                {this.props.isError &&
+                <div className={s.error}>
+                    <span>Some error occurred</span>
+                </div>}
                 <HeaderContainer/>
                 <NavbarContainer/>
                 <main className={s.contentWrapper}>
@@ -80,12 +87,13 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    initialized: state.app.initialized
+    initialized: state.app.initialized,
+    isError: state.app.isError
 })
 const AppContainer = compose(
     withRouter,
     connect(mapStateToProps,
-        {initializeApp}))(App);
+        {initializeApp, catchError}))(App);
 
 const After100GramsApp = (props) => {
     return (

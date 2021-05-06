@@ -46,6 +46,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
                     <span className={s.itemTitle}>
                         Looking for a job:&nbsp;
                     </span>
+                            <div className={style.formCheckboxWrap}>
                             {createField(
                                 "",
                                 'lookingForAJob',
@@ -53,8 +54,10 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
                                 Input,
                                 {type: "checkbox", id: 'lookingForAJob'}
                             )}
+                                <div className={style.label}>
                             <label htmlFor="lookingForAJob">Yes</label>
-
+                                </div>
+                            </div>
                         </div>
 
                         <div className={s.item}>
