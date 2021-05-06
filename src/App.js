@@ -18,6 +18,7 @@ import {catchError, initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
 import E404 from "./components/common/E404/E404";
+import cn from "classnames";
 //import {withSuspense} from "./hoc/withSuspense";
 
 /*const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
@@ -53,7 +54,7 @@ class App extends React.Component {
         return (
             <div className={s.appWrapper}>
                 {this.props.isError &&
-                <div className={s.error}>
+                <div className={cn(s.error, s.animate__animated, s.animate__fadeInRight)}>
                     <span>Some error occurred</span>
                 </div>}
                 <HeaderContainer/>
