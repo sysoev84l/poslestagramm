@@ -34,7 +34,7 @@ class App extends React.Component {
         //alert("Some error occurred");
         this.props.catchError(true);
         //console.error(promiseRejectionEvent);
-        setTimeout(this.props.catchError,3000, false)
+        setTimeout(this.props.catchError,5000, false)
     }
 
     componentDidMount() {
