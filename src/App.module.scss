@@ -94,11 +94,20 @@
     z-index: 999;
     height: 50px;
     width: 200px;
-    border: 1px solid #000;
-    border-radius: 5px;
+    border: 1px solid #f00;
+    border-radius: 10px;
     background: #d7c8c8;
     color: #f00;
     box-shadow: 5px 5px 24px -5px rgba(0, 0, 0, 0.85);
+    .closeErrorMess{
+    position: absolute;
+      top: 1px;
+      right: 6px;
+      cursor: pointer;
+      &:hover {
+        color: #000
+      }
+  }
   }
 }
 

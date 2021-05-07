@@ -19,6 +19,8 @@ import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
 import E404 from "./components/common/E404/E404";
 import cn from "classnames";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimes} from "@fortawesome/free-solid-svg-icons";
 //import {withSuspense} from "./hoc/withSuspense";
 
 /*const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
@@ -34,7 +36,7 @@ class App extends React.Component {
         //alert("Some error occurred");
         this.props.catchError(true);
         //console.error(promiseRejectionEvent);
-        setTimeout(this.props.catchError,5000, false)
+        setTimeout(this.props.catchError,10000, false)
     }
 
     componentDidMount() {
@@ -53,8 +55,12 @@ class App extends React.Component {
 
         return (
             <div className={s.appWrapper}>
-                {this.props.isError &&
+                {this.props.globalError &&
                 <div className={cn(s.error, s.animate__animated, s.animate__fadeInRight)}>
+                    <span className={s.closeErrorMess}
+                          onClick={()=> {this.props.catchError(false)}}>
+                         <FontAwesomeIcon icon={faTimes} size='sm' />
+                    </span>
                     <span>Some error occurred</span>
                 </div>}
                 <HeaderContainer/>
@@ -89,7 +95,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized,
-    isError: state.app.isError
+    globalError: state.app.globalError
 })
 const AppContainer = compose(
     withRouter,
