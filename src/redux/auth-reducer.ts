@@ -5,30 +5,31 @@ const SET_USER_DATA = 'after100Grams/auth/SET_USER_DATA';
 const TOGGLE_IS_FETCHING = 'after100Grams/auth/TOGGLE_IS_FETCHING';
 const GET_CAPTCHA_URL_SUCCESS = 'after100Grams/auth/GET_CAPTCHA_URL_SUCCESS'
 
-export type InitialStateType = {
+/*export type InitialStateType = {
     id: number | null
     email: string | null
     login: string | null
     isFetching: boolean
     isAuth: boolean
     captchaUrl: string | null
-};
+};*/
 
-let initialState: InitialStateType = {
-    id: null,
-    email: null,
-    login: null,
+let initialState  = {
+    id: null as number | null,
+    email: null as string | null,
+    login: null as string | null,
     isFetching: false,
     isAuth: false,
-    captchaUrl: null // if null, then captcha is not required
+    captchaUrl: null  as string | null// if null, then captcha is not required
 };
+export type InitialStateType = typeof initialState
 const authReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case SET_USER_DATA:
         case GET_CAPTCHA_URL_SUCCESS:
             return {
                 ...state,
-                ...action.payload,
+                ...action.payload
             }
         case TOGGLE_IS_FETCHING:
             return {...state, isFetching: action.isFetching}

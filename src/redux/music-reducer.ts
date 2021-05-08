@@ -1,3 +1,7 @@
+type MusicType = {
+    id: number
+    idVideo: string
+}
 let initialState = {
     music: [
         {id: 1, idVideo: "FlP4RVbQMpg"},
@@ -10,9 +14,9 @@ let initialState = {
         {id: 8, idVideo: "5XWu-hgipGs"},
         {id: 9, idVideo: "1cUNsE6qWSU"},
         {id: 10, idVideo: "3vnVzoEz_Zs"}
-    ]
+    ] as Array<MusicType>
 }
-const musicReducer = (state = initialState, action) => {
+const musicReducer = (state = initialState, action: any) => {
     return state
 }
 export default musicReducer

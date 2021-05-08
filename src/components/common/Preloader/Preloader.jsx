@@ -1,8 +1,9 @@
 import React from 'react';
 import style from './Preloader.module.scss'
+import cn from "classnames";
 const Preloader = (props) => {
     return (
-        <div className={props.fullSize ? style.fullSize : ''}>
+        <div className={cn ({[style.fullSize]: props.fullSize })}>
             <h1 className={style.title}>После ста грамм</h1>
             <div className={style.wrapper}>
                 <div className={style.ldsSpinner}>
@@ -18,6 +19,9 @@ const Preloader = (props) => {
                     <div></div>
                     <div></div>
                     <div></div>
+                </div>
+                <div>
+                    <h6>Loading...</h6>
                 </div>
             </div>
         </div>
