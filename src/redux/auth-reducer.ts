@@ -5,15 +5,6 @@ const SET_USER_DATA = 'after100Grams/auth/SET_USER_DATA';
 const TOGGLE_IS_FETCHING = 'after100Grams/auth/TOGGLE_IS_FETCHING';
 const GET_CAPTCHA_URL_SUCCESS = 'after100Grams/auth/GET_CAPTCHA_URL_SUCCESS'
 
-/*export type InitialStateType = {
-    id: number | null
-    email: string | null
-    login: string | null
-    isFetching: boolean
-    isAuth: boolean
-    captchaUrl: string | null
-};*/
-
 let initialState  = {
     id: null as number | null,
     email: null as string | null,

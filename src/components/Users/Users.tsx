@@ -1,14 +1,27 @@
-import React from "react";
+import React, {FC} from "react";
 import {Container} from "react-bootstrap";
 import style from "./Users.module.scss";
 import User from "./User";
 import {Paginator} from "../common/Paginator/Paginator";
+import {UserType} from "../../types/types";
 
-const Users = ({
-                   currentPage, totalUsersCount, pageSize, isFetching,
-                   onPageChanged, onNextPage, onPrevPage, users,
-                   followingInProgress, follow, unfollow, ...props
-               }) => {
+type PropsType = {
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    onPageChanged: (pageNumber: number) => void
+    users: Array<UserType>
+    followingInProgress: Array<number>
+    unfollow: (userId: number) => void
+    follow: (userId: number) => void
+    isFetching: boolean
+}
+const Users: FC<PropsType> = ({
+                                  currentPage, totalUsersCount,
+                                  pageSize, isFetching,
+                                  onPageChanged, users, followingInProgress,
+                                  follow, unfollow, ...props
+                              }) => {
     return (
         <Container>
             <div className={style.wrapper}>

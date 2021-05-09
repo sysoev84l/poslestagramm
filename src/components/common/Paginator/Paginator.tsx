@@ -1,15 +1,27 @@
-import React, {useState} from 'react';
-import styles from "./Paginator.module.scss";
-import cn from "classnames";
-import {Button} from "react-bootstrap";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
+import React, {useState} from 'react'
+import styles from "./Paginator.module.scss"
+import cn from "classnames"
+import {Button} from "react-bootstrap"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons"
 
-export const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
+type PropsType = {
+    totalItemsCount: number
+    pageSize: number
+    currentPage: number
+    onPageChanged: (pageNumber: number) => void
+    portionSize?: number
+}
+
+export const Paginator: React.FC<PropsType> = ({totalItemsCount,
+                                               pageSize,
+                                               currentPage,
+                                               onPageChanged,
+                                               portionSize = 10}) => {
 
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
-    let pages = [];
+    let pages: Array<number> = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }

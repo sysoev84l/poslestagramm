@@ -70,7 +70,7 @@ class App extends React.Component {
                         <Route exact path='/' render={() => <Redirect from="/" to="/profile"/>}/>
                         <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
+                        <Route path='/users' render={() => <UsersContainer pageTitle={'Самураи'}/>}/>
                         <Route path='/news' render={() => <News/>}/>
                         <Route path='/music' render={() => <MusicContainer/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>
