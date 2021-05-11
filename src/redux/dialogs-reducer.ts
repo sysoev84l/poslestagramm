@@ -1,4 +1,5 @@
-const SEND_MESSAGE = 'after100Grams/dialogs/SEND_MESSAGE';
+import {InferActionsTypes} from "./redux-store";
+
 
 type DialogType = {
     id: number
@@ -28,13 +29,13 @@ let initialState = {
 }
 export type InitialStateType = typeof initialState
 
-type ActionsType = SendMessageActionType
+
 
 const dialogsReducer =
     (state = initialState,
-     action: SendMessageActionType): InitialStateType => {
+     action: ActionsType): InitialStateType => {
         switch (action.type) {
-            case SEND_MESSAGE :
+            case "after100Grams/dialogs/SEND_MESSAGE" :
                 let body = action.newMessageBody;
                 let newMessage = {
                     id: state.messages.length + 1,
@@ -48,10 +49,11 @@ const dialogsReducer =
                 return state
         }
     }
-
-type SendMessageActionType = {
-    type: typeof SEND_MESSAGE
-    newMessageBody: string
+type ActionsType = InferActionsTypes<typeof actions>
+export const actions = {
+    sendMessage : (newMessageBody: string)=> ({
+        type: 'after100Grams/dialogs/SEND_MESSAGE',
+        newMessageBody
+    } as const)
 }
-export const sendMessage = (newMessageBody: string): SendMessageActionType => ({type: SEND_MESSAGE, newMessageBody});
 export default dialogsReducer

@@ -4,17 +4,21 @@ import imgWoman from '../../../assets/img/avatar/woman.svg';
 import s from './Avatars.module.scss';
 import cn from "classnames";
 
-const Avatar = (props) => {
-    let sex
-    if (props.sex === 'woman') sex = imgWoman
-    else sex = imgMan;
+type PropsType ={
+    size?: string | undefined,
+    sex?: string | undefined
+}
+const Avatar: React.FC<PropsType> = ({size, sex}) => {
+    let icon
+    if (sex === 'woman') icon = imgWoman
+    else icon = imgMan;
     return (
         <div className={
-            cn({[s.large]: props.size === 'lg'},
-                {[s.small]: props.size === 's'},
+            cn({[s.large]: size === 'lg'},
+                {[s.small]: size === 's'},
                 s.wrapper
             )}>
-            <img src={sex} alt=""/>
+            <img src={icon} alt=""/>
         </div>
 
     )

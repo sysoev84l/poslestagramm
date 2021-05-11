@@ -6,10 +6,10 @@ import {MusicType} from "../../types/types";
 type PropsType = {
     music: Array<MusicType>
 }
-const Music: React.FC<PropsType> =(props ) => {
+const Music: React.FC<PropsType> =({music} ) => {
            return (
             <div className={style.wrapper}>
-                {props.music.map(m => <Youtube idVideo={m.idVideo} key={m.id}/>)}
+                {music.map(m => <Youtube idVideo={m.idVideo} key={m.id}/>)}
             </div>
         )
     }

@@ -1,8 +1,8 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import style from "./Users.module.scss";
-import Avatar from "../common/Avatars/Avatar";
 import {Button} from "react-bootstrap";
+import Avatar from "../common/Avatars/Avatar";
 
 let User = ({user, followingInProgress, unfollow, follow}) => {
 
