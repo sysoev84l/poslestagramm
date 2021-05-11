@@ -1,8 +1,11 @@
 import React from 'react';
 import s from './Youtube.module.scss';
 
-const Youtube = (props) => {
-    let src = 'https://www.youtube.com/embed/' + props.id;
+type PropsType = {
+    idVideo: string
+}
+const Youtube:React.FC<PropsType> = (props) => {
+    let src = 'https://www.youtube.com/embed/' + props.idVideo;
     return (
         <div className={s.wrap}>
             <iframe width="300" height="168.75" src={src}

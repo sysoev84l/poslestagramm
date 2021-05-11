@@ -1,7 +1,5 @@
-type MusicType = {
-    id: number
-    idVideo: string
-}
+import { MusicType } from "../types/types"
+
 let initialState = {
     music: [
         {id: 1, idVideo: "FlP4RVbQMpg"},

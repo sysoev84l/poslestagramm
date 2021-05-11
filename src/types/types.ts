@@ -32,3 +32,7 @@ export type UserType = {
     status: string
     photos: PhotosType
 }
+export type MusicType = {
+    id: number
+    idVideo: string
+}

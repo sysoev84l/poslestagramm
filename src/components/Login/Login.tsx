@@ -21,20 +21,6 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
        }) => {
     return (
         <form onSubmit={handleSubmit} className={style.loginForm}>
-            {/*  <Field
-                component={Input}
-                type="email"
-                placeholder="Enter email"
-                name={'email'}
-                validate={[required]}
-            />
-            <Field
-                component={Input}
-                type="password"
-                placeholder="Password"
-                name={'password'}
-                validate={[required]}
-            />*/}
             {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input, {type: "email"})}
             {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {type: "password"})}
             <div className={s.formCheckboxWrap}>
@@ -49,19 +35,6 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
                     <label htmlFor="rememberMe">remember me</label>
                 </div>
             </div>
-            {/* <div className={s.formCheckboxWrap}>
-                <div>
-                    <Field
-                        component={Input}
-                        type="checkbox"
-                        name={'rememberMe'}
-                        id="rememberMe"
-                    />
-                </div>
-                <div className={s.label}>
-                    <label htmlFor="rememberMe">check me out</label>
-                </div>
-            </div>*/}
             {captchaUrl && <img src={captchaUrl} alt='captcha'/>}
             {captchaUrl && createField<LoginFormValuesTypeKeys>("Symbols from image", "captcha", [required], Input, {type: "text"})}
             {
@@ -104,7 +77,7 @@ const Login: React.FC<MapStatePropsType & MapDispatchPropsType> = (props) => {
     }
     return (
         <div className={style.wrapper}>
-            <h1>Login</h1>
+            <h2>Login</h2>
             <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>
     )
@@ -115,6 +88,4 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => {
         captchaUrl: state.auth.captchaUrl
     }
 }
-export default connect(
-    mapStateToProps,
-    {login})(Login)
+export default connect(mapStateToProps, {login})(Login)
