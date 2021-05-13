@@ -1,5 +1,4 @@
 import {GetItemsType, instance, APIResponseType} from "./api";
-import {AxiosPromise} from "axios";
 
 
 
