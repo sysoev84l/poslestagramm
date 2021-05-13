@@ -1,5 +1,7 @@
-import {authAPI, ResultCodeForCaptcha, ResultCodesEnum, securityAPI} from "../api/api";
+import {ResultCodeForCaptchaEnum, ResultCodesEnum} from "../api/api";
 import {stopSubmit} from "redux-form";
+import {authAPI} from "../api/auth-api";
+import {securityAPI} from "../api/security-api";
 
 const SET_USER_DATA = 'after100Grams/auth/SET_USER_DATA';
 const TOGGLE_IS_FETCHING = 'after100Grams/auth/TOGGLE_IS_FETCHING';
@@ -78,7 +80,7 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
     if (data.resultCode === ResultCodesEnum.Success) {
         dispatch(getAuthUserData());
     } else {
-        if (data.resultCode === ResultCodeForCaptcha.CaptchaIsRequired) {
+        if (data.resultCode === ResultCodeForCaptchaEnum.CaptchaIsRequired) {
             dispatch(getCaptchaUrl());
         }
         let message = data.messages.length > 0
