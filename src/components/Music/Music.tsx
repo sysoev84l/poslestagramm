@@ -14,14 +14,14 @@ type PropsType = {
 type AddMusicFormValuesType = {
     idVideo: string
 }
-type LoginFormValuesTypeKeys = Extract<keyof AddMusicFormValuesType, string>
+type AddMusicFormValuesTypeKeys = Extract<keyof AddMusicFormValuesType, string>
 const AddMusicForm: React.FC<InjectedFormProps<AddMusicFormValuesType>>
     = ({
            handleSubmit
        }) => {
     return (
         <form onSubmit={handleSubmit}>
-            {createField<LoginFormValuesTypeKeys>("IdVideo", "idVideo", [required], Input, {type: "text"})}
+            {createField<AddMusicFormValuesTypeKeys>("IdVideo", "idVideo", [required], Input, {type: "text"})}
             <div className={s.btnWrapRight}>
                 <button className={s.btn}>
                     Add Music

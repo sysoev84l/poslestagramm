@@ -34,7 +34,7 @@ let mapStateToProps = (state: AppStateType): MapStatePropsType => {
         music: state.musicPage.music
     }
 }
-export default compose(
+export default compose<React.ComponentType>(
     // TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultRootState
     connect<MapStatePropsType, {}, {}, AppStateType>(
         mapStateToProps,

@@ -16,27 +16,35 @@ import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {catchError, initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-import store from "./redux/redux-store";
+import store, {AppStateType} from "./redux/redux-store";
 import E404 from "./components/common/E404/E404";
 import cn from "classnames";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 //import {withSuspense} from "./hoc/withSuspense";
 
-/*const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+/*
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
-const News = React.lazy(() => import('./components/News/News'));
-const MusicContainer = React.lazy(() => import('./components/Music/MusicContainer'));
-const Settings = React.lazy(() => import('./components/Settings/Settings'));
-const LoginPage = React.lazy(() => import('./components/Login/Login'));
-const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));*/
 
-class App extends React.Component {
-    catchAllUnhandledErrors = (reason, promise) => {
+
+const SuspendedDialogs = withSuspense(DialogsContainer);
+const SuspendedProfile = withSuspense(ProfileContainer);
+*/
+
+type MapStatePropsType = ReturnType<typeof mapStateToProps>
+type MapDispatchPropsType = {
+    initializeApp: () => void
+    catchError: (globalError: boolean) => void
+}
+type PropsType = MapStatePropsType & MapDispatchPropsType
+
+class App extends React.Component<PropsType> {
+    catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
         //alert("Some error occurred");
         this.props.catchError(true);
         //console.error(promiseRejectionEvent);
-        setTimeout(this.props.catchError,10000, false)
+        setTimeout(this.props.catchError, 10000, false)
     }
 
     componentDidMount() {
@@ -58,8 +66,10 @@ class App extends React.Component {
                 {this.props.globalError &&
                 <div className={cn(s.error, s.animate__animated, s.animate__fadeInRight)}>
                     <span className={s.closeErrorMess}
-                          onClick={()=> {this.props.catchError(false)}}>
-                         <FontAwesomeIcon icon={faTimes} size='sm' />
+                          onClick={() => {
+                              this.props.catchError(false)
+                          }}>
+                         <FontAwesomeIcon icon={faTimes} size='sm'/>
                     </span>
                     <span>Some error occurred</span>
                 </div>}
@@ -74,18 +84,18 @@ class App extends React.Component {
                         <Route path='/news' render={() => <News/>}/>
                         <Route path='/music' render={() => <MusicContainer/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>
+                        <Route path='/settings' render={() => <Settings/>}/>
                         <Route path='/login' render={() => <LoginPage/>}/>
                         <Route path='*' render={() => <E404/>}/>
                     </Switch>
 
-                    {/*<Route path='/profile/:userId?' render={withSuspense(ProfileContainer)}/>
-                    <Route path='/dialogs' render={withSuspense(DialogsContainer)}/>
-                    <Route path='/users' render={withSuspense(UsersContainer)}/>
-                    <Route path='/news' render={withSuspense(News)}/>
-                    <Route path='/music' render={withSuspense(MusicContainer)}/>
-                    <Route path='/settings' render={withSuspense(Settings)}/>
-                    <Route path='/login' render={withSuspense(LoginPage)}/>*/
-                    }
+                    {/*
+                    <Route path='/dialogs'
+                               render={() => <SuspendedDialogs /> }/>
+
+                    <Route path='/profile/:userId?'
+                               render={() => <SuspendedProfile /> }/>
+                    */}
                 </main>
                 <Footer/>
             </div>
@@ -93,16 +103,16 @@ class App extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
     initialized: state.app.initialized,
     globalError: state.app.globalError
 })
-const AppContainer = compose(
+const AppContainer = compose<React.ComponentType>(
     withRouter,
     connect(mapStateToProps,
         {initializeApp, catchError}))(App);
 
-const After100GramsApp = (props) => {
+const After100GramsApp: React.FC = () => {
     return (
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Provider store={store}>
