@@ -27,15 +27,11 @@ let initialState = {
         {id: 3, message: "Yo"}
     ] as Array<MessageType>
 }
-export type InitialStateType = typeof initialState
-
-
-
 const dialogsReducer =
     (state = initialState,
      action: ActionsType): InitialStateType => {
         switch (action.type) {
-            case "after100Grams/dialogs/SEND_MESSAGE" :
+            case "SN/DIALOGS/SEND_MESSAGE" :
                 let body = action.newMessageBody;
                 let newMessage = {
                     id: state.messages.length + 1,
@@ -49,11 +45,14 @@ const dialogsReducer =
                 return state
         }
     }
-type ActionsType = InferActionsTypes<typeof actions>
+
 export const actions = {
-    sendMessage : (newMessageBody: string)=> ({
-        type: 'after100Grams/dialogs/SEND_MESSAGE',
+    sendMessage: (newMessageBody: string) => ({
+        type: 'SN/DIALOGS/SEND_MESSAGE',
         newMessageBody
     } as const)
 }
 export default dialogsReducer
+
+export type InitialStateType = typeof initialState
+type ActionsType = InferActionsTypes<typeof actions>

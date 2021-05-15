@@ -1,4 +1,5 @@
 import Music from "./Music";
+import {actions} from "../../redux/music-reducer"
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {AppStateType} from "../../redux/redux-store";
@@ -8,13 +9,22 @@ import {MusicType} from "../../types/types";
 type MapStatePropsType = {
     music: Array<MusicType>
 }
+type MapDispatchPropsType = {
+    addMusic: (idVideo: string) => void
+}
+type OwnPropsType = {
+    pageTitle: string
+}
 
-class MusicContainer extends React.Component<MapStatePropsType> {
+type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
+
+
+class MusicContainer extends React.Component<PropsType> {
     render() {
         return (
-          <div>
-              <Music music={this.props.music} />
-          </div>
+            <div>
+                <Music music={this.props.music} addMusic={this.props.addMusic}/>
+            </div>
         )
     }
 }
@@ -28,5 +38,5 @@ export default compose(
     // TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultRootState
     connect<MapStatePropsType, {}, {}, AppStateType>(
         mapStateToProps,
-        {})
+        {addMusic: actions.addMusic})
 )(MusicContainer)

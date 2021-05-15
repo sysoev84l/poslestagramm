@@ -1,25 +1,19 @@
 import {getAuthUserData} from "./auth-reducer";
+import {InferActionsTypes} from "./redux-store";
 
-const INITIALIZED_SUCCESS = 'after100Grams/app/INITIALIZED_SUCCESS';
-const GLOBAL_ERROR = 'after100Grams/app/GLOBAL_ERROR';
-
-export type InitialStateType = {
-    initialized: boolean
-    globalError: boolean
-};
-
-let initialState: InitialStateType = {
+let initialState = {
     initialized: false,
     globalError: false
 };
-const appReducer = (state = initialState, action: any): InitialStateType => {
+
+const appReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
-        case INITIALIZED_SUCCESS:
+        case "SN/APP/INITIALIZED_SUCCESS":
             return {
                 ...state,
                 initialized: true,
             }
-        case GLOBAL_ERROR:
+        case "SN/APP/GLOBAL_ERROR":
             return {
                 ...state,
                 globalError: action.globalError
@@ -29,29 +23,29 @@ const appReducer = (state = initialState, action: any): InitialStateType => {
     }
 }
 
-type InitializedSuccessActionType = {
-    type: typeof INITIALIZED_SUCCESS
+export const actions = {
+    initializedSuccess: () => ({type: 'SN/APP/INITIALIZED_SUCCESS'} as const),
+    toggleGlobalError:  (globalError: boolean) => ({
+        type: 'SN/APP/GLOBAL_ERROR',
+        globalError
+    } as const)
 }
-type ToggleGlobalErrorActionType = {
-    type: typeof GLOBAL_ERROR,
-    globalError: boolean
-}
-const initializedSuccess = ():InitializedSuccessActionType => ({type: INITIALIZED_SUCCESS});
-const toggleGlobalError = (globalError: boolean): ToggleGlobalErrorActionType => ({type: GLOBAL_ERROR, globalError});
-
 export const initializeApp = () => {
     return (dispatch: any) => {
         let promise = dispatch(getAuthUserData());
         Promise.all([promise])
             .then(() => {
-                dispatch(initializedSuccess());
+                dispatch(actions.initializedSuccess());
             });
     }
 }
 export const catchError = (globalError: boolean) => {
     return (dispatch: any) => {
-        dispatch(toggleGlobalError(globalError))
+        dispatch(actions.toggleGlobalError(globalError))
     }
 }
 
 export default appReducer
+
+export type InitialStateType = typeof initialState
+type ActionsType = InferActionsTypes<typeof actions>

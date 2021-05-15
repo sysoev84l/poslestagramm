@@ -1,8 +1,10 @@
 .wrapper {
-  display: flex;
-  flex-wrap: wrap;
   padding-left: 10px;
   padding-top: 10px;
+}
+.musicWrap {
+  display: flex;
+  flex-wrap: wrap;
 }
 @media screen and (max-width: 1200px) {
 

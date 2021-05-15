@@ -1,5 +1,6 @@
 import React from 'react';
-import s from './MyPosts.module.scss';
+import style from './MyPosts.module.scss';
+import s from '../../common/FormsContorls/FormsControl.module.scss'
 import Post from './Post/Post';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Field, reduxForm} from "redux-form";
@@ -8,8 +9,8 @@ import {Textarea} from "../../common/FormsContorls/FormControls";
 const  maxLength50 = maxLengthCreator(50)
 let AddNewPostForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit} className={s.addPostForm}>
-            <div className={s.formItem}>
+        <form onSubmit={props.handleSubmit} className={style.addPostForm}>
+            <div className={style.formItem}>
                 <Field
                     component={Textarea}
                     name="newPostText"
@@ -17,7 +18,7 @@ let AddNewPostForm = (props) => {
                     validate={[required, maxLength50]}
                 />
             </div>
-            <div className={s.formControl}>
+            <div className={style.formControl}>
                 <button className={s.btn}>Add post</button>
             </div>
         </form>
@@ -32,12 +33,12 @@ const MyPosts = React.memo((props) => {
             props.addPost(value.newPostText);
     }
     return (
-        <div className={s.wrapper}>
+        <div className={style.wrapper}>
             <h3 className="">
                 My posts
             </h3>
             <AddNewPostForm onSubmit={onAddPost}/>
-            <div className={s.posts}>
+            <div className={style.posts}>
                 {posts}
             </div>
         </div>
