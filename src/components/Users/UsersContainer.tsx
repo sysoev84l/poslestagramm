@@ -60,7 +60,6 @@ class UsersContainer extends React.Component<PropsType> {
                        follow={this.props.follow}
                        unfollow={this.props.unfollow}
                        followingInProgress={this.props.followingInProgress}
-                       isFetching={this.props.isFetching}
                 />
                 {this.props.isFetching ? <Preloader/> : null}
             </>

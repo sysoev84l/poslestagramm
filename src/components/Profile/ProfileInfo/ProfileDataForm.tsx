@@ -1,11 +1,18 @@
 import React from "react";
-import {reduxForm} from "redux-form";
+import {InjectedFormProps, reduxForm} from "redux-form";
 import s from "./ProfileInfo.module.scss";
-import {createField, Input, Textarea} from "../../common/FormsContorls/FormControls";
+import {createField, GetStringKeys, Input, Textarea} from "../../common/FormsContorls/FormControls";
 import style from "../../common/FormsContorls/FormsControl.module.scss";
+import {ProfileType} from "../../../types/types";
 
 
-const ProfileDataForm = ({handleSubmit, profile, error}) => {
+type PropsType = {
+    profile: ProfileType
+
+}
+type ProfileTypeKeys = GetStringKeys<ProfileType>
+
+const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> & PropsType> = ({handleSubmit, profile, error}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className={s.infoWrap}>
@@ -16,7 +23,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
                                 Full name:
                             </h5>
                             <div>
-                                {createField(
+                                {createField<ProfileTypeKeys>(
                                     "Full name",
                                     'fullName',
                                     [],
@@ -32,7 +39,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
                         About me:&nbsp;
                     </div>
                             <div className={s.itemInputWrap}>
-                            {createField(
+                            {createField<ProfileTypeKeys>(
                                 "About me",
                                 'aboutMe',
                                 [],
@@ -47,7 +54,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
                         Looking for a job:&nbsp;
                     </span>
                             <div className={style.formCheckboxWrap}>
-                            {createField(
+                            {createField<ProfileTypeKeys>(
                                 "",
                                 'lookingForAJob',
                                 [],
@@ -66,7 +73,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
                     </span>
                             <span>{profile.lookingForAJobDescription}</span>
                         </div>
-                        {createField(
+                        {createField<ProfileTypeKeys>(
                             "My professional skills:",
                             'lookingForAJobDescription',
                             [],
@@ -82,6 +89,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
                                         <div className={s.contactWrap}>
                                             <div className={s.contactKeyTitle}>{key}:</div>
                                             <div className={s.contactKeyInputWrap}>
+                                                {/* todo: create some solution for embedded objects */}
                                                 {createField(key,
                                                     "contacts." + key,
                                                     [], Input,
@@ -110,6 +118,6 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
     )
 }
 
-const ProfileDataFormReduxForm = reduxForm({form: 'edit-profile'})(ProfileDataForm)
+const ProfileDataFormReduxForm = reduxForm<ProfileType, PropsType>({form: 'edit-profile'})(ProfileDataForm)
 
 export default ProfileDataFormReduxForm;

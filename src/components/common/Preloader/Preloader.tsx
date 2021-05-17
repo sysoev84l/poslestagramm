@@ -1,9 +1,12 @@
 import React from 'react';
 import style from './Preloader.module.scss'
 import cn from "classnames";
-const Preloader = (props) => {
+type PropsType = {
+    fullScreen?: boolean
+}
+const Preloader: React.FC<PropsType> = (props) => {
     return (
-        <div className={cn ({[style.fullSize]: props.fullSize })}>
+        <div className={cn ({[style.fullSize]: props.fullScreen })}>
             <h1 className={style.title}>После ста грамм</h1>
             <div className={style.wrapper}>
                 <div className={style.ldsSpinner}>

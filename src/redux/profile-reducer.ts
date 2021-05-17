@@ -12,7 +12,6 @@ let initialState = {
         {id: 4, message: "I'm Senior Full Stack Developer!!", likesCount: 33},
         {id: 5, message: "Jews, Jews!! There are only Jews around!!", likesCount: 33}
     ] as Array<PostType>,
-    newPostText: '',
     profile: null as ProfileType | null,
     status: ''
 }

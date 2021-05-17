@@ -4,8 +4,12 @@ import Avatar from "../../../common/Avatars/Avatar";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faThumbsUp} from "@fortawesome/free-solid-svg-icons";
 
+type PropsType = {
+    message: string
+    likesCount: number
+}
 
-const Post = (props) => {
+const Post: React.FC<PropsType> = (props) => {
     return (
         <div className={s.item}>
             <Avatar sex='man'/>

@@ -58,7 +58,7 @@ class App extends React.Component<PropsType> {
 
     render() {
         if (!this.props.initialized) {
-            return <Preloader fullSize={true}/>
+            return <Preloader fullScreen={true}/>
         }
 
         return (

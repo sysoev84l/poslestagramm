@@ -14,13 +14,12 @@ type PropsType = {
     followingInProgress: Array<number>
     unfollow: (userId: number) => void
     follow: (userId: number) => void
-    isFetching: boolean
 }
 const Users: FC<PropsType> = ({
                                   currentPage, totalUsersCount,
-                                  pageSize, isFetching,
+                                  pageSize,
                                   onPageChanged, users, followingInProgress,
-                                  follow, unfollow, ...props
+                                  follow, unfollow
                               }) => {
     return (
         <Container>

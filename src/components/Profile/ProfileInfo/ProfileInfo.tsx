@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import style from './ProfileInfo.module.scss';
 import Avatar from "../../common/Avatars/Avatar";
 import Preloader from "../../common/Preloader/Preloader";
@@ -14,9 +14,13 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
+import {ContactsType, ProfileType} from "../../../types/types";
 
-
-const Contact = ({contactTitle, contactValue}) => {
+type ContactPropsType = {
+    contactTitle: string
+    contactValue: string
+}
+const Contact: React.FC<ContactPropsType> = ({contactTitle, contactValue}) => {
     let icon;
     switch (contactTitle) {
         case 'facebook' :
@@ -54,7 +58,12 @@ const Contact = ({contactTitle, contactValue}) => {
         </div>
     )
 }
-const ProfileData = ({profile, isOwner, goToEditMode}) => {
+type ProfileDataPropsType = {
+    profile: ProfileType
+    isOwner: boolean
+    goToEditMode: () => void
+}
+const ProfileData: React.FC<ProfileDataPropsType> = ({profile, isOwner, goToEditMode}) => {
     return (
         <div className={style.infoWrap}>
             <div className={style.infoBlock}>
@@ -93,17 +102,18 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
                 <div className={style.contactsWrap}>
                     <h6 className={style.title}>Contacts:</h6>
                     <div>
-                        {Object.keys(profile.contacts).map(
-                            key => {
+                        {Object
+                            .keys(profile.contacts)
+                            .map((key) => {
                                 return <Contact key={key}
-                                    contactTitle={key}
-                                    contactValue={profile.contacts[key]}/>
+                                                contactTitle={key}
+                                                contactValue={profile.contacts[key as keyof ContactsType]}/>
                             })}
                     </div>
 
                 </div>
             </div>
-            <div className={style.controlWrap}>
+                  <div className={style.controlWrap}>
                 {isOwner && <div className={style.formControl}>
                     <button className={style.btn}
                             onClick={goToEditMode}
@@ -116,21 +126,31 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
     )
 }
 
-const ProfileInfo = ({
-                         savePhoto, isOwner, profile,
-                         status, updateStatus, saveProfile
-                     }) => {
+type PropsType = {
+    profile: ProfileType | null
+    status: string
+    updateStatus: (status: string) => void
+    isOwner: boolean
+    savePhoto: (file: File) => void
+    saveProfile: (profile: ProfileType) => Promise<any>
+}
+
+const ProfileInfo: React.FC<PropsType> = ({
+                                              savePhoto, isOwner, profile,
+                                              status, updateStatus, saveProfile
+                                          }) => {
     let [editMode, setEditMode] = useState(false);
 
     if (!profile) {
         return <Preloader/>
     }
-    const onMainPhotoSelected = (e) => {
-        if (e.target.files.length) {
+    const onMainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files?.length) {
             savePhoto(e.target.files[0]);
         }
     }
-    const onSubmit = (formData) => {
+    const onSubmit = (formData: ProfileType) => {
+        // todo: remove then
         saveProfile(formData).then(
             () => {
                 setEditMode(false);
@@ -165,9 +185,9 @@ const ProfileInfo = ({
                 </div>
                 <div className={style.descriptionWrap}>
                     {editMode
-                        ? <ProfileDataForm  initialValues={profile}
-                                            profile={profile}
-                                            onSubmit={onSubmit}/>
+                        ? <ProfileDataForm initialValues={profile}
+                                           profile={profile}
+                                           onSubmit={onSubmit}/>
                         : <ProfileData goToEditMode={() => {
                             setEditMode(true)
                         }}

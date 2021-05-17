@@ -8,7 +8,6 @@ let state = {
         {id: 4, message: "I'm Senior Full Stack Developer!!", likesCount: 33},
         {id: 5, message: "Jews, Jews!! There are only Jews around!!", likesCount: 33}
     ],
-    newPostText: '',
     profile: null,
     isFetching: false,
     status: ''

@@ -16,7 +16,7 @@ const AddMessageForm: React.FC<InjectedFormProps<NewMessageFormValuesType, Props
             <div>
                 {createField<NewMessageFormValuesKeysType>("Enter your message",
                     "newMessageBody",
-                    [required, maxLength100], Textarea, )}
+                    [required, maxLength100], Textarea)}
 
             </div>
             <div className={s.btnWrapRight}>

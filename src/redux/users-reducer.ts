@@ -1,8 +1,8 @@
-import {updateObjectInArray} from "../utils/object-helpers";
-import {UserType} from '../types/types';
-import {BaseThunkType, InferActionsTypes} from "./redux-store";
-import {Dispatch} from "redux";
-import {usersAPI} from "../api/users-api";
+import {updateObjectInArray} from "../utils/object-helpers"
+import {UserType} from '../types/types'
+import {BaseThunkType, InferActionsTypes} from "./redux-store"
+import {Dispatch} from "redux"
+import {usersAPI} from "../api/users-api"
 
 
 let initialState = {
@@ -10,7 +10,7 @@ let initialState = {
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: true,
+    isFetching: false,
     followingInProgress: [] as Array<number>, //array of users ids
 };
 
@@ -110,9 +110,9 @@ export const unfollow = (userId: number): ThunkType => {
     }
 }
 
-export default usersReducer;
+export default usersReducer
 
-type InitialStateType = typeof initialState;
+type InitialStateType = typeof initialState
 type ActionsType = InferActionsTypes<typeof actions>
 type DispatchType = Dispatch<ActionsType>
 type ThunkType = BaseThunkType<ActionsType>
