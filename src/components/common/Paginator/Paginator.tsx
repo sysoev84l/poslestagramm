@@ -8,15 +8,15 @@ import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons"
 type PropsType = {
     totalItemsCount: number
     pageSize: number
-    currentPage: number
-    onPageChanged: (pageNumber: number) => void
+    currentPage?: number
+    onPageChanged?: (pageNumber: number) => void
     portionSize?: number
 }
 
-export const Paginator: React.FC<PropsType> = ({totalItemsCount,
+const Paginator: React.FC<PropsType> = ({totalItemsCount,
                                                pageSize,
-                                               currentPage,
-                                               onPageChanged,
+                                               currentPage = 1 ,
+                                               onPageChanged= x => x,
                                                portionSize = 10}) => {
 
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
@@ -79,3 +79,5 @@ export const Paginator: React.FC<PropsType> = ({totalItemsCount,
 
     </div>
 }
+
+export default Paginator

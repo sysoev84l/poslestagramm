@@ -6,9 +6,14 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCogs, faMusic, faUserCircle, faUsers} from "@fortawesome/free-solid-svg-icons";
 import {faNewspaper} from "@fortawesome/free-regular-svg-icons";
 import {faFacebookMessenger} from "@fortawesome/free-brands-svg-icons";
+import {FriendType} from "../../redux/sidebar-reducer";
 
-const Navbar = (props) => {
-    let friends = props.state.friends.map(f => <Friend name={f.name} key={f.id} isMale={f.isMale}/>);
+type PropsType = {
+    friends: Array<FriendType>
+}
+
+const Navbar:React.FC<PropsType> = ({friends}) => {
+    let items = friends.map(f => <Friend name={f.name} key={f.id} isMale={f.isMale} id={f.id}/>);
     return (
         <div className={s.wrapper}>
             <nav className={s.nav}>
@@ -91,7 +96,7 @@ const Navbar = (props) => {
                 <h2>Friends</h2>
 
             <div className={s.friends}>
-                {friends}
+                {items}
             </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ import {InferActionsTypes} from "./redux-store";
 type DialogType = {
     id: number
     name: string
-    isMale: boolean
 }
 type MessageType = {
     id: number,
@@ -13,13 +12,13 @@ type MessageType = {
 
 let initialState = {
     dialogs: [
-        {id: 1, name: "Andrey", isMale: true},
-        {id: 2, name: "Alexey", isMale: true},
-        {id: 3, name: "Sveta", isMale: false},
-        {id: 4, name: "Victor", isMale: true},
-        {id: 5, name: "Marya", isMale: false},
-        {id: 6, name: "Olga", isMale: false},
-        {id: 7, name: "Vasya", isMale: true}
+        {id: 1, name: "Andrey"},
+        {id: 2, name: "Alexey"},
+        {id: 3, name: "Sveta"},
+        {id: 4, name: "Victor"},
+        {id: 5, name: "Marya"},
+        {id: 6, name: "Olga"},
+        {id: 7, name: "Vasya"}
     ] as Array<DialogType>,
     messages: [
         {id: 1, message: "Hi"},

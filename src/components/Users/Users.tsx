@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import {Container} from "react-bootstrap";
 import style from "./Users.module.scss";
 import User from "./User";
-import {Paginator} from "../common/Paginator/Paginator";
+import Paginator from "../common/Paginator/Paginator";
 import {UserType} from "../../types/types";
 
 type PropsType = {

@@ -1,8 +1,10 @@
 import React from 'react';
 import s from './Friend.module.scss';
 import Avatar from "../../common/Avatars/Avatar";
+import {FriendType} from "../../../redux/sidebar-reducer";
 
-const Friend = (props) => {
+
+const Friend:React.FC<FriendType> = (props) => {
     return (
         <div className={s.wrapper}>
             {props.isMale

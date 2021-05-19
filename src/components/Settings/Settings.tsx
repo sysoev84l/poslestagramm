@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Settings.module.scss';
 import Loader from "../common/Preloader/Preloader";
 
-const Settings = (props) => {
+const Settings: React.FC = () => {
     return (
         <div className={s.wrapper}>
             Settings

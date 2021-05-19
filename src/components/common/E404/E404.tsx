@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './E404.module.scss';
 
-const E404 = (props) => {
+const E404: React.FC = () => {
     return (
         <div className={s.wrapper}>
             <h1 className="h1 m-4 p-4 text-center">404 ERROR</h1>

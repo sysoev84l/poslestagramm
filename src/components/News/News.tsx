@@ -2,7 +2,7 @@ import React from 'react';
 import s from './News.module.scss';
 import img from './../../assets/img/jews/04.jpg'
 
-const News = (props) => {
+const News: React.FC = () => {
     return (
         
         <div className={s.wrapper}>

@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {NavLink} from "react-router-dom";
 ;
 
-const Footer = () => {
+const Footer: React.FC = () => {
     let hostName = document.location.origin;
             return (
         <footer className={style.footer}>
