@@ -24,6 +24,7 @@ const Users: FC<PropsType> = ({
                                   users, followingInProgress,
                                   follow, unfollow
                               }) => {
+
     return (
         <Container>
             <div className={style.wrapper}>
