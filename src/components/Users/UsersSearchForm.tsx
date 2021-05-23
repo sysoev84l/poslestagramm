@@ -20,7 +20,8 @@ type PropsType = {
 
 export const UsersSearchForm: React.FC<PropsType> = React.memo((props) => {
 
-    const submit = (values: FormType, {setSubmitting}: { setSubmitting: (isSubmitting: boolean) => void }) => {
+    const submit = (values: FormType,
+                    {setSubmitting}: { setSubmitting: (isSubmitting: boolean) => void }) => {
         const filter: FilterType = {
             term: values.term,
             friend: values.friend === 'null' ? null : values.friend === 'true' ? true : false
@@ -44,11 +45,11 @@ export const UsersSearchForm: React.FC<PropsType> = React.memo((props) => {
                     <div className={style.formBottomWrap}>
                         <div>
                             <div className={s.formControl}>
-                            <Field name="friend" as="select">
-                                <option value="null">All</option>
-                                <option value="true">Only followed</option>
-                                <option value="false">Only unfollowed</option>
-                            </Field>
+                                <Field name="friend" as="select">
+                                    <option value="null">All</option>
+                                    <option value="true">Only followed</option>
+                                    <option value="false">Only unfollowed</option>
+                                </Field>
                             </div>
                         </div>
                         <div className={s.btnWrapRight}>
