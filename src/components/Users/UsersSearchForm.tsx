@@ -40,7 +40,10 @@ export const UsersSearchForm: React.FC<PropsType> = React.memo((props) => {
             {({isSubmitting}) => (
                 <Form>
                     <div className={s.formControl}>
-                        <Field type="text" name="term" className={s.input}/>
+                        <Field type="text" name="term"
+                               className={s.input}
+                               placeholder='User name'
+                        />
                     </div>
                     <div className={style.formBottomWrap}>
                         <div>
