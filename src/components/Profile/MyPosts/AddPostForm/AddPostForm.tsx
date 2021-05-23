@@ -23,7 +23,7 @@ const AddPostForm: React.FC<InjectedFormProps<AddPostFormValuesType, PropsType> 
             </div>
             <div className={s.btnWrapRight}>
                 <button className={s.btn}>
-                    Send message
+                    Add Post
                 </button>
             </div>
         </form>

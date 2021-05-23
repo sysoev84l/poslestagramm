@@ -54,7 +54,7 @@ const Contact: React.FC<ContactPropsType> = ({contactTitle, contactValue}) => {
         <div>
             <span>{icon}&nbsp;</span>
             <span>{contactTitle}:&nbsp;</span>
-            <span>{contactValue}</span>
+            <span><a href={contactValue} target='_blank' rel="noreferrer">{contactValue}</a></span>
         </div>
     )
 }
