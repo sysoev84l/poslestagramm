@@ -8,10 +8,10 @@ import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import MusicContainer from "./components/Music/MusicContainer";
-import UsersContainer from "./components/Users/UsersContainer";
+import {UsersPage} from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginPage from "./components/Login/Login";
+import {LoginPage} from "./components/Login/LoginPage";
 import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {catchError, initializeApp} from "./redux/app-reducer";
@@ -80,7 +80,7 @@ class App extends React.Component<PropsType> {
                         <Route exact path='/' render={() => <Redirect from="/" to="/profile"/>}/>
                         <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-                        <Route path='/users' render={() => <UsersContainer pageTitle={'Самураи'}/>}/>
+                        <Route path='/users' render={() => <UsersPage pageTitle={'Самураи'}/>}/>
                         <Route path='/news' render={() => <News/>}/>
                         <Route path='/music' render={() => <MusicContainer/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>
