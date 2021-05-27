@@ -17,8 +17,7 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
            handleSubmit,
            error,
            captchaUrl,
-
-       }) => {
+      }) => {
     return (
         <form onSubmit={handleSubmit} className={style.loginForm}>
             {createField<LoginFormValuesTypeKeys>("Email", "email", [required], Input, {type: "email"})}
@@ -64,7 +63,6 @@ type LoginFormValuesTypeKeys = Extract<keyof LoginFormValuesType, string>
 export const LoginPage: React.FC = () => {
     const captchaUrl = useSelector( (state: AppStateType) => state.auth.captchaUrl)
     const isAuth = useSelector((state: AppStateType) => state.auth.captchaUrl)
-
     const dispatch = useDispatch()
 
     const onSubmit = (formData: LoginFormValuesType) => {
