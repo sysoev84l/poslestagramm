@@ -1,26 +1,27 @@
-import React from 'react';
+import React from 'react'
+import 'antd/dist/antd.css'
 import './App.scss'
 import s from './App.module.scss'
-import {BrowserRouter, Route, withRouter, Switch, Redirect} from "react-router-dom";
-import Footer from "./components/Footer/Footer";
-import News from "./components/News/News";
-import Settings from "./components/Settings/Settings";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import NavbarContainer from "./components/Navbar/NavbarContainer";
-import MusicContainer from "./components/Music/MusicContainer";
-import {UsersPage} from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
-import {LoginPage} from "./components/Login/LoginPage";
-import {connect, Provider} from "react-redux";
-import {compose} from "redux";
-import {catchError, initializeApp} from "./redux/app-reducer";
-import Preloader from "./components/common/Preloader/Preloader";
-import store, {AppStateType} from "./redux/redux-store";
-import E404 from "./components/common/E404/E404";
-import cn from "classnames";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTimes} from "@fortawesome/free-solid-svg-icons";
+import {BrowserRouter, Route, withRouter, Switch, Redirect} from "react-router-dom"
+import Footer from "./components/Footer/Footer"
+import News from "./components/News/News"
+import Settings from "./components/Settings/Settings"
+import DialogsContainer from "./components/Dialogs/DialogsContainer"
+import NavbarContainer from "./components/Navbar/NavbarContainer"
+import MusicContainer from "./components/Music/MusicContainer"
+import {UsersPage} from "./components/Users/UsersContainer"
+import ProfileContainer from "./components/Profile/ProfileContainer"
+import HeaderContainer from "./components/Header/HeaderContainer"
+import {LoginPage} from "./components/Login/LoginPage"
+import {connect, Provider} from "react-redux"
+import {compose} from "redux"
+import {catchError, initializeApp} from "./redux/app-reducer"
+import Preloader from "./components/common/Preloader/Preloader"
+import store, {AppStateType} from "./redux/redux-store"
+import E404 from "./components/common/E404/E404"
+import cn from "classnames"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faTimes} from "@fortawesome/free-solid-svg-icons"
 //import {withSuspense} from "./hoc/withSuspense";
 
 /*
