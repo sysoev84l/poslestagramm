@@ -13,7 +13,7 @@ import {
     getUsersFilter
 } from "../../redux/users-selectors"
 import {useDispatch, useSelector} from "react-redux"
-import { useHistory } from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import * as queryString from "querystring"
 
 type PropsType = {}
@@ -31,6 +31,7 @@ export const Users: FC<PropsType> = (props) => {
     const history = useHistory()
 
     useEffect(() => {
+
         const parsed = queryString.parse(history.location.search.substr(1)) as QueryParamsType
 
         let actualPage = currentPage
@@ -41,7 +42,7 @@ export const Users: FC<PropsType> = (props) => {
 
         if (!!parsed.term) actualFilter = {...actualFilter, term: parsed.term as string}
 
-        switch(parsed.friend) {
+        switch (parsed.friend) {
             case "null":
                 actualFilter = {...actualFilter, friend: null}
                 break;
@@ -83,22 +84,22 @@ export const Users: FC<PropsType> = (props) => {
     }
 
     return (
-                <div className={style.wrapper}>
-                <UsersSearchForm onFilterChanged={onFilterChanged}/>
+        <div className={style.wrapper}>
+            <UsersSearchForm onFilterChanged={onFilterChanged}/>
 
-                <div className={style.dataWrap}>
-                    {
-                        users.map(u => <User key={u.id}
-                                             user={u}
-                                             followingInProgress={followingInProgress}
-                                             follow={follow}
-                                             unfollow={unfollow}
-                        />)
-                    }
-                </div>
-
-                <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
-                           totalItemsCount={totalUsersCount} pageSize={pageSize}/>
+            <div className={style.dataWrap}>
+                {
+                    users.map(u => <User key={u.id}
+                                         user={u}
+                                         followingInProgress={followingInProgress}
+                                         follow={follow}
+                                         unfollow={unfollow}
+                    />)
+                }
             </div>
-            )
+
+            <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+                       totalItemsCount={totalUsersCount} pageSize={pageSize}/>
+        </div>
+    )
 }
